@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>href example</title>
+  <link rel="styleSheet" href="styles.css" />
+  <script>
+    function sref() {
+      console.log("document.styleSheets[0].href " + document.styleSheets[0].href);
+      // href is just read only === not possible to adjust it
+      document.styleSheets[0].href = "blabnlabla";
+    }
+  </script>
+</head>
+<body>
+  <div class="thunder">
+    Thunder
+  </div>
+  <button onclick="sref()">
+    Button
+  </button>
+
+  <!-- Next inline style doesn't appear load to document -->
+  <p style="font-family: Arial, sans-serif; background-color: yellow;" id="elementWithInlineStyle">
+    Alfred
+  </p>
+
+  <script>
+    // stylesheet interface
+    console.log("document.styleSheets " + document.styleSheets);
+    let documentStyleSheetsLength = document.styleSheets.length;    // Just 1!, not the inline
+    console.log("documentStyleSheetsLength " + documentStyleSheetsLength);
+
+    // p      information
+    const elementWithInlineStyle = document.getElementById("elementWithInlineStyle");
+    console.log("elementWithInlineStyle.styleSheets " + elementWithInlineStyle.styleSheets);    // empty, because there's not a StyleSheet object
+    console.log("elementWithInlineStyle.style.__proto__ " + elementWithInlineStyle.style.__proto__);    // CSSStyleDeclaration    -- another interface --
+    console.log("elementWithInlineStyle.style.hred " + elementWithInlineStyle.style.href);    // CSSStyleDeclaration has not got href property
+
+  </script>
+</body>
+</html>
