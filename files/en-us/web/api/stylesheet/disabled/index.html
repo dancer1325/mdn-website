@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stylesheet Disabled Example</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" id="mainStylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css" id="secondStylesheet">
+</head>
+<body>
+<h1>Hello World</h1>
+<button id="toggleButton">Toggle Stylesheet</button>
+
+<script>
+  const toggleButton = document.getElementById("toggleButton");
+  const mainStylesheet = document.getElementById("mainStylesheet");   // link   element
+
+  // link       information
+  console.log("mainStylesheet.rel " + mainStylesheet.rel);
+  console.log("mainStylesheet.type " + mainStylesheet.type);
+
+  // document   information
+  console.log("document.styleSheets.length " + document.styleSheets.length);
+
+
+  // stylesheet interface
+  console.log("document.styleSheets " + document.styleSheets);
+  console.log("document.styleSheets[0].__proto__ " + document.styleSheets[0].__proto__);      // Display that it's a CSSStyleSheet object
+  console.log("document.styleSheets[0].disabled " + document.styleSheets[0].disabled);
+
+  toggleButton.addEventListener("click", () => {
+    // Stylesheet.disabled      access to the property
+    if (mainStylesheet.disabled) {
+      mainStylesheet.disabled = false; // Enable the stylesheet
+    } else {
+      mainStylesheet.disabled = true;  // Disable the stylesheet
+    }
+    // Once you disable, and you try to enable again !-> it's applied!!!!
+    // TODO: Why once you remove it, although you set manually is not visible? Now styleSheets[0] is the second one loaded
+    let documentStyleSheetsLength = document.styleSheets.length;
+    console.log("documentStyleSheetsLength " + documentStyleSheetsLength);
+    let isThereStyleSheetObjects = documentStyleSheetsLength >=1
+    console.log("isThereStyleSheetObjects " + isThereStyleSheetObjects);
+    if (isThereStyleSheetObjects) console.log("[After changing manually] document.styleSheets[0].disabled " + document.styleSheets[0].disabled);
+  });
+</script>
+</body>
+</html>
