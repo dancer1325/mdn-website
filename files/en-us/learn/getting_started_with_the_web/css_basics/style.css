@@ -41,8 +41,35 @@ html {
 }
 
 /*                          -- Center <img>  --    */
+/* 1. CSS grid === wrap under container and using a grid */
 .container {
   display: grid;
   place-items: center;
   height: 100vh; /* Optional for vertical centering */
+}
+/* 2.  display in block*/
+/*img {
+  display: block;
+  margin: 0 auto;
+}*/
+
+/*                          -- Other styles  --    */
+div{
+  background-color: fuchsia;
+}
+
+body {
+  width: 600px;                       /* Force the body's size always */
+
+  /* Passing 2 values -- top and bottom | left and right --
+  0     because normally browsers apply default styling to h1*/
+  margin: 0 auto;
+  background-color: #ff9500;
+  padding: 0 20px 20px 20px;          /* Passing 4 values -- top | right | bottom | left -- */
+  border: 5px solid black;            /* Passing 3 values -- width | style | color -- */
+
+  /* Passing 4 values, the syntax can be --
+  1. offset-x | offset-y | blur-radius | color (Used here)
+  2. color | offset-x | offset-y | blur-radius -- */
+  text-shadow: 3px 3px 1px black;
 }
