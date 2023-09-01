@@ -39,3 +39,10 @@ p,
 html {
   font-family: "Open Sans", sans-serif; /* this should be the rest of the output you got from Google Fonts */
 }
+
+/*                          -- Center <img>  --    */
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh; /* Optional for vertical centering */
+}
