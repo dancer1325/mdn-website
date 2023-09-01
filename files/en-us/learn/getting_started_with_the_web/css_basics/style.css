@@ -1,0 +1,36 @@
+/*                            --  CSSSelector types   --               */
+/* 1.1 Element selector */
+p {
+  color: red;
+}
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+/* 1.2 Id selector */
+#MyId {
+  color: green;
+}
+
+/* 1.3 Class selector */
+.class-selector {
+  color: black;
+}
+
+/* 1.4 Attribute selector */
+h2[title] {
+  color: dodgerblue;
+}
+
+/* 1.5 Pseudo-class selector */
+a:hover {
+  color: red;
+}
+
+
+/*                          -- 1!CSS ruleset applied to multiple CSSSelectors  --    */
+p,
+#MyId {
+  background: aqua;
+}
