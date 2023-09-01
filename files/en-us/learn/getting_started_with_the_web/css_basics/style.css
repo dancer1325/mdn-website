@@ -33,6 +33,11 @@ div p {
   background-color: indigo;
 }
 
+/* 1.6.1 Descendant combinator selector must not!! be direct descendants  */
+div em {
+  background-color: teal;
+}
+
 /*                          -- 1!CSS ruleset applied to multiple CSSSelectors  --    */
 p,
 #MyId {
