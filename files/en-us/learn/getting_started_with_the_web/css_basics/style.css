@@ -28,6 +28,10 @@ a:hover {
   color: red;
 }
 
+/* 1.6 Descendant combinator selector */
+div p {
+  background-color: indigo;
+}
 
 /*                          -- 1!CSS ruleset applied to multiple CSSSelectors  --    */
 p,

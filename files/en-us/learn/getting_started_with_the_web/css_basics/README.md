@@ -12,4 +12,5 @@
   * Class selector
   * Attribute selector
   * Pseudo-class selector
+  * Descendant combinator selector
 * 1! CSS ruleset applied to multiple `CSSSelector`(s)
