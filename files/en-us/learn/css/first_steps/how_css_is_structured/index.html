@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>My CSS experiment</title>
+
+  <!-- 1. external stylesheet -->
+  <!-- href     path should be adjusted based on relative location
+       type="text/css"      unnecessary, since it works without it -->
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+
+  <!-- 2. internal stylesheet -->
+  <!-- Since it's placed after external stylesheet -> internal overrides it -->
+  <style>
+    h1 {
+      color: greenyellow;
+      background-color: black;
+    }
+
+    p {
+      color: blue;
+    }
+  </style>
+
+</head>
+
+<body>
+<h1>Hello World!</h1>
+<p>This is my first CSS example</p>
+
+<!-- 3. inline style -->
+<!-- Style for a specific element -->
+<p style="color: black; background-color: aqua">
+  Inline style
+</p>
+
+<h2 class="special">
+  Specificity
+</h2>
+
+<div class="boxCalc">
+  Box whose width is got via calc function
+</div>
+
+<div class="boxTransformRotate">
+  Box whose width is got via calc function
+</div>
+
+<div class="importedStyle">
+  @rule as @import
+</div>
+
+</body>
+
+</html>
