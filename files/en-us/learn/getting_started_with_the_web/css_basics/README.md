@@ -18,4 +18,5 @@
     * applied just to the second element of the filter
     * independently if some of them have got children
   * Based on the state
+* Different `CSSSelector` types can be combined!!!
 * 1! CSS ruleset applied to multiple `CSSSelector`(s)

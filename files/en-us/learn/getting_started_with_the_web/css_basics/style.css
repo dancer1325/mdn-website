@@ -52,6 +52,20 @@ a:visited {
   background-color: crimson;
 }
 
+/* Combine different type of selectors is possible  */
+/* Element which
+ 1. .special class (Class selector) &
+ 2. inside of p (descendant combinator selector) &
+ 3. comes after (adjacent sibling combinator)
+   3.1 h2 inside a body (descendant combinator selector) */
+body h2 + p .special {
+  color: yellow;
+  background-color: black;
+  padding: 5px;
+}
+
+
+
 /*                          -- 1!CSS ruleset applied to multiple CSSSelectors  --    */
 p,
 #MyId {
