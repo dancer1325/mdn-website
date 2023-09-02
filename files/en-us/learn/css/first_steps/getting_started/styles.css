@@ -1,0 +1,46 @@
+/*  Targeting an element selector */
+h1 {
+  color: red;
+}
+
+/*  Targeting multiple selectors at the same time */
+p,
+li {
+  color: green;
+}
+
+/* Remove browser's styles
+ Example1: bullet point for unordered lists */
+li {
+  list-style-type: none;
+}
+
+/* Class selector */
+.special {
+  color: blue;
+  font-weight: bold;
+}
+
+/* Element + Class selector */
+/* This selector overrides the previous one for the second li */
+li.special {
+  color: orange;
+  font-weight: bold;
+}
+
+/* Descendant combinator selector */
+p em {
+  background-color: fuchsia;
+  font-weight: bold;
+}
+
+/* Unnecessary to be father and child, it could be father and grandchild */
+div em {
+  background-color:maroon;
+}
+
+/* Adjacent sibling combinator (+)
+Independent if some of them have got children */
+div + div {
+  background-color: aquamarine;
+}
