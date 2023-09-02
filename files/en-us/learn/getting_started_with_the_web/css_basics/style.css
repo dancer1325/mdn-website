@@ -38,6 +38,11 @@ div em {
   background-color: teal;
 }
 
+/* 1.7 Adjacent sibling combinator  */
+div + a {
+  background-color: dodgerblue;
+}
+
 /*                          -- 1!CSS ruleset applied to multiple CSSSelectors  --    */
 p,
 #MyId {

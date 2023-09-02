@@ -14,4 +14,7 @@
   * Pseudo-class selector
   * Descendant combinator selector
     * Unnecessary to be direct descendants
+  * Adjacent sibling combinator `+`
+    * applied just to the second element of the filter
+    * independently if some of them have got children
 * 1! CSS ruleset applied to multiple `CSSSelector`(s)
