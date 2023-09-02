@@ -43,6 +43,15 @@ div + a {
   background-color: dodgerblue;
 }
 
+/* 1.8 Based on the state  */
+a:focus {
+  background-color: lightsalmon;
+}
+
+a:visited {
+  background-color: crimson;
+}
+
 /*                          -- 1!CSS ruleset applied to multiple CSSSelectors  --    */
 p,
 #MyId {

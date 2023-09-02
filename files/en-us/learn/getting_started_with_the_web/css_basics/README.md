@@ -17,4 +17,5 @@
   * Adjacent sibling combinator `+`
     * applied just to the second element of the filter
     * independently if some of them have got children
+  * Based on the state
 * 1! CSS ruleset applied to multiple `CSSSelector`(s)
