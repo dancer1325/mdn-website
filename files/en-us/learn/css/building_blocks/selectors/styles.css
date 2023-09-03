@@ -1,0 +1,25 @@
+/* Selector list */
+/* 1. Split, no via list */
+h1 {
+  color: blue;
+}
+
+.special {
+  color: blue;
+}
+
+/* 2. Via list */
+h2, .specialForH2 {
+  color: green;
+}
+
+/* 3. Whitespaces don't care */
+h3,
+.specialNoCareWhitespaces {
+  color: red;
+}
+
+/* 4. If any selector is syntactically invalid -> the whole rule will be ignored */
+h4, ..wrongCSSSelector {
+  color: brown;
+}
