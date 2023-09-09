@@ -1,0 +1,19 @@
+<!-- doctype is not specified -> quirks mode are triggered -->
+<html>
+<head>
+  <title>Quirks Mode Example</title>
+</head>
+<body>
+<h1>This is an Example in Quirks Mode</h1>
+<p>This document is in quirks mode because it lacks a proper <!DOCTYPE> declaration.</p>
+
+<!-- Based on document.compatMode   -> you know if it's a quirk mode -->
+<script>
+  let compatMode = document.compatMode;
+  let isQuirkMode = compatMode.localeCompare("BackCompat") === 0
+
+  console.log("compatMode " + compatMode + " which it's a quirk mode " + isQuirkMode);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<!-- Thanks to doctype  -> web browser is able to determine it as no-quirk mode or full standard mode -->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World!</title>
+</head>
+<body>
+<h1>This is an Example in NO Quirks Mode</h1>
+<p>This document is in NO quirks mode </p>
+
+<!-- Based on document.compatMode   -> you know if it's a quirk mode -->
+<script>
+  let compatMode = document.compatMode;
+  let isQuirkMode = compatMode.localeCompare("BackCompat") === 0
+
+  console.log("compatMode " + compatMode + " which it's a quirk mode " + isQuirkMode);
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<!-- doctype    is a transitional one -->
+<html>
+<head>
+  <title>Almost-Standards Mode Example</title>
+</head>
+<body>
+<h1>This is an Example in Almost-Standards Mode</h1>
+<p>This document is in "almost-standards" mode due to the transitional <!DOCTYPE> declaration.</p>
+
+<!-- Based on document.compatMode   -> you know if it's a quirk mode -->
+<script>
+  let compatMode = document.compatMode;
+  let isQuirkMode = compatMode.localeCompare("BackCompat") === 0
+
+  console.log("compatMode " + compatMode + " which it's a quirk mode " + isQuirkMode);
+</script>
+</body>
+</html>
