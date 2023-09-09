@@ -1,0 +1,17 @@
+<!-- svg       Root tag-->
+<!-- docType is not recommended, because it's problematic -->
+<svg version="1.1"
+     width="300" height="200"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <!-- version  & baseProfile attributes are deprecated from SVG2-->
+  <!-- xmlns  attribute binds to the namespace (svg in this case) -->
+
+  <rect width="100%" height="100%" fill="red" />
+  <!-- rect element      to covers all (100%) the image area-->
+
+  <circle cx="150" cy="100" r="80" fill="green" />
+
+  <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
+
+</svg>

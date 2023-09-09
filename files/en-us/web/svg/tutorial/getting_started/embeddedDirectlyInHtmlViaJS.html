@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic SVG Creation</title>
+</head>
+<body>
+<h1>Dynamic SVG Creation Example</h1>
+
+<div id="svg-container">
+  <!-- The dynamically created SVG will be injected here. -->
+</div>
+
+<script>
+  // Create an SVG element
+  var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("width", "200");
+  svg.setAttribute("height", "150");
+
+  // Create a rectangle within the SVG
+  var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+  rect.setAttribute("x", "50");
+  rect.setAttribute("y", "20");
+  rect.setAttribute("width", "100");
+  rect.setAttribute("height", "60");
+  rect.setAttribute("fill", "blue");
+
+  // Append the rectangle to the SVG
+  svg.appendChild(rect);
+
+  // Append the SVG to the container div
+  var svgContainer = document.getElementById("svg-container");
+  svgContainer.appendChild(svg);
+</script>
+</body>
+</html>
