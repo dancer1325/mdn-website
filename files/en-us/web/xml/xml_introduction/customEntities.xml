@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Several custom entities can be added under the root element -->
+<!DOCTYPE body [
+  <!ENTITY warning "Warning: Something bad happened... please refresh and try again.">
+  <!ENTITY hello "Hello,">
+  <!ENTITY bye " Goodbye!!">
+  ]>
+<!-- TODO: Why do I get an error by the IDE, but afterwards is rendered by the browser?-->
+<body>
+  <!-- Each time, that you use the custom entities -> replaced by its value  -->
+  <message> &hello; &warning; &bye;</message>
+</body>

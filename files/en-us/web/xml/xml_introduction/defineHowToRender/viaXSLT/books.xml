@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Common xml without any reference here to XSLT -->
+<library>
+  <book>
+    <title>XML Basics</title>
+    <author>John Doe</author>
+    <publicationYear>2020</publicationYear>
+  </book>
+  <book>
+    <title>Web Development with HTML and CSS</title>
+    <author>Jane Smith</author>
+    <publicationYear>2019</publicationYear>
+  </book>
+</library>

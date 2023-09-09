@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--                       XML Declaration
+    which must be placed at the top -->
+<!-- version    version in this document
+     encoding   encoding used in this document -->
+
+
+<!-- Tags no predefined, that you can define freedom -->
+<message>
+  <warning>
+    Hello World
+    <!-- don't miss </warning> -->
+  </warning>
+
+
+  <!-- Not allowed to have multiple root tags -->
+  <!--<description>
+    Example
+  </description>-->
+
+
+
+
+  <!--                       Entities                   -->
+  <description>
+    XML entities are &lt;  &gt;   &amp;  &quot;  &apos;
+  </description>
+
+
+</message>
+
+
