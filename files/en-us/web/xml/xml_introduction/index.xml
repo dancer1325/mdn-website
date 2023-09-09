@@ -12,6 +12,9 @@
     <!-- don't miss </warning> -->
   </warning>
 
+  <!-- Case-sensitive  ->  beginning and end tag should be the same -->
+  <otHer></otHer>
+
 
   <!-- Not allowed to have multiple root tags -->
   <!--<description>
