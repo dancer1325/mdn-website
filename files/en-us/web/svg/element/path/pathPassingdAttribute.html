@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- d SVG attribute
+    M 10,30                     pointer in (10,10)
+    A 20,20 0,0,1 50,30         draw arc / portion of an ellipse  RadiusElipseInX 20,RadiusElipseInY 20   Angle 0,LargeArcFlag 0,SweepFlag 1  EndPointInX 50, EndPointInY 30
+    A 20,20 0,0,1 90,30         draw arc / portion of an ellipse  RadiusElipseInX 20,RadiusElipseInY 20   Angle 0,LargeArcFlag 0,SweepFlag 1  EndPointInX 90, EndPointInY 30
+    Q 90,60 50,90               draw a quadratic Bezier curve     ControlPoint 90,60  ,EndPoint 50,90
+    Q 10,60 10,30               draw a quadratic Bezier curve     ControlPoint 10,60  ,EndPoint 10,30
+    z                           draw a straight line from currentPosition 10,30 to    firstPointInThePath 10,10
+    -->
+  <path
+    d="M 10,10
+           A 20,20 0,0,1 50,30
+           A 20,20 0,0,1 90,30
+           Q 90,60 50,90
+           Q 10,60 10,30 z" />
+</svg>
+</body>
+</html>
