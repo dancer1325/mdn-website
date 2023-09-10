@@ -1,0 +1,13 @@
+html,
+body,
+svg {
+  height: 100%;
+}
+
+
+/* IDSelector : PseudoClassSelector DescendantCombinatorSelector
+   #svg_css_ex1:hover path                   */
+/* d:none       -> it will be hidden */
+#svg_css_ex1:hover path {
+  d: none
+}

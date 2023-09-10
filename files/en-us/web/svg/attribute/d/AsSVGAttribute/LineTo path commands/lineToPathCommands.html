@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <link type="text/css" rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- LineTo commands with absolute coordinates -->
+  <!-- M 10,10     pointer in (10,10)
+   L 90,90         draw a straight line to (90,90)
+   V 10            draw a vertical line to (90,10)
+   H 50            draw a horizontal line to (50,10) -->
+  <path
+    fill="none"
+    stroke="red"
+    d="M 10,10
+           L 90,90
+           V 10
+           H 50" />
+
+  <!-- LineTo commands with relative coordinates -->
+  <!-- M 110,10   pointer in (110,10)
+   l 80,80        draw a straight line to (190,90)
+   v -80          draw a vertical line to (190,10)
+   h -40          draw a horizontal line to (150,10) -->
+  <path
+    fill="none"
+    stroke="red"
+    d="M 110,10
+           l 80,80
+           v -80
+           h -40" />
+</svg>
+</body>
+</html>
