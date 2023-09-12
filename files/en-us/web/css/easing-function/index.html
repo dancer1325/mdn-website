@@ -28,11 +28,27 @@
       <option>ease-in</option>
       <option>ease-in-out</option>
       <option>ease-out</option>
-      <option>cubic-bezier(0.1, -0.6, 0.2, 0)</option>
-      <option>cubic-bezier(0, 1.1, 0.8, 4)</option>
-      <option>steps(5, end)</option>
-      <option>steps(3, start)</option>
+      <option>cubic-bezier(0.1, -0.6, 0.2, 0)</option>  <!-- negative ordinates lead bouncing effects -->
+      <option>cubic-bezier(0, 1.1, 0.8, 4)</option>   <!-- also valid ordinates > 1.0 -->
+      <!-- TODO: Why does no numeric arguments are valid? Unicode characters taken?-->
+      <option>cubic-bezier(0, red, 1.0, green)</option>
+      <!-- TODO: Why does it work if abscissas are not in the range [0,1]? -->
+      <option>cubic-bezier(2.45, 0.6, 4, 0.1)</option>
+      <!-- TODO: Why does it work if not necessary numbers are passed? -->
+      <option>cubic-bezier(0.3, 2.1)</option>
+      <option>steps(5, end)</option>  <!-- === steps(5, jump-end) -->
+      <option>steps(3, start)</option>  <!-- === steps(5, jump-start) -->
+      <option>steps(5, jump-none)</option>
+      <option>steps(3, jump-both)</option>
       <option>steps(4)</option>
+      <option>step-start</option> <!-- NO transition, immediate -->
+      <option>step-end</option>   <!-- NO transition, immediate -->
+      <!-- TODO: Why does it work if first argument must be an integer? -->
+      <option>steps(2.0, jump-end)</option>
+      <!-- TODO: Why does it work if amount of steps must be non-negative? -->
+      <option>steps(-3, start)</option>
+      <!-- TODO: Why does it work if there should be >=1 step? -->
+      <option>steps(0, jump-none)</option>
     </select>
   </li>
 </ul>
