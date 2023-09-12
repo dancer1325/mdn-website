@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8"/>
+  <link type="text/css" rel="stylesheet" href="styles.css">
+  <!-- TODO: Why doesn't it work if you add in the head
+  <script src="main.js"></script>
+  -->
+</head>
+
+<body>
+
+<!-- Don't remove it, because it's the place to insert the animation-->
+<div>
+  <div></div>
+</div>
+
+<ul>
+  <li>
+    <button class="animation-button">Start animation</button>
+  </li>
+  <li>
+    <label for="easing-select">Choose an easing function:</label>
+    <select id="easing-select">
+      <option selected>linear</option>
+      <option>linear(0, 0.5 50%, 1)</option>
+      <option>ease</option>
+      <option>ease-in</option>
+      <option>ease-in-out</option>
+      <option>ease-out</option>
+      <option>cubic-bezier(0.1, -0.6, 0.2, 0)</option>
+      <option>cubic-bezier(0, 1.1, 0.8, 4)</option>
+      <option>steps(5, end)</option>
+      <option>steps(3, start)</option>
+      <option>steps(4)</option>
+    </select>
+  </li>
+</ul>
+
+<!-- script should be added here to make it work -->
+<script src="main.js"></script>
+</body>
+</html>
