@@ -1,4 +1,4 @@
-Check some different easing-functions' behaviors from [all the available one] (https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function#formal_syntax)
+Check some different easing-functions' behaviors from [all the available one](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function#formal_syntax)
 
 
 # Notes
