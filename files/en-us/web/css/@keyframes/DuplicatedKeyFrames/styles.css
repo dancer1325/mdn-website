@@ -1,0 +1,38 @@
+/* Define the @keyframes animation */
+@keyframes slidein {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Duplicated keyframe with the same name -> This last one overrides the previous ones */
+@keyframes slidein {
+  from {
+    transform: rotate(40deg)
+  }
+  50% {
+    background-color: red;
+  }
+  to {
+    transform: translateX(100%);
+  }
+  /* If you duplicate an offset -> this last one overrides the previous ones */
+  50% {
+    background-color: greenyellow;
+  }
+}
+
+/* Apply the animation to an element */
+.animated-element {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  animation-name: slidein; /* Use the defined animation */
+  animation-duration: 2s; /* Animation duration (2 seconds in this case) */
+  animation-timing-function: ease; /* Timing function for smooth animation */
+  animation-delay: 0.5s; /* Delay before the animation starts (0.5 seconds in this case) */
+  animation-fill-mode: forwards; /* Keeps the element at the end state of the animation */
+}

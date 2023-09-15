@@ -1,0 +1,27 @@
+/* Define the @keyframes animation */
+@keyframes slidein {
+  from {
+    transform: translateX(0%);
+  }
+  50% {
+    margin-top: 150px !important; /* ignored */
+  }
+  75% {
+    margin-top: 150px;
+  } /* ignored */
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Apply the animation to an element */
+.animated-element {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  animation-name: slidein; /* Use the defined animation */
+  animation-duration: 2s; /* Animation duration (2 seconds in this case) */
+  animation-timing-function: ease; /* Timing function for smooth animation */
+  animation-delay: 0.5s; /* Delay before the animation starts (0.5 seconds in this case) */
+  animation-fill-mode: forwards; /* Keeps the element at the end state of the animation */
+}
