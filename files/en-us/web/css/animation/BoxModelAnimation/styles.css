@@ -1,0 +1,25 @@
+/* Define the keyframes for the "resizeBox" animation */
+@keyframes resizeBox {
+  0% {
+    width: 100px;
+    height: 100px;
+  }
+  100% {
+    width: 500px;
+    height: 200px;
+  }
+}
+
+.animated-box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  animation: 1s forwards resizeBox;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

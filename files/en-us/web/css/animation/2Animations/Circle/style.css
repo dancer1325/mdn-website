@@ -1,0 +1,49 @@
+/* Define the @keyframes animation */
+@keyframes slideHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideMix {
+  0% {
+    color: #ff9500;               /* No effect on <circle> */
+  }
+  30% {
+    color: green;                 /* No effect on <circle> */
+    background-color: #6c373f;    /* No effect on <circle> */
+    transform: translateY(50px);
+  }
+  100% {
+    top: 100px;                  /* No effect on <circle> */
+    transform: translateY(-50px);
+  }
+}
+
+/* Type / Tag CSS Selector */
+circle {
+  /* Check the formal syntax of animation
+    animation = <time> <easing-function> <time> <single-animation-iteration-count> <single-animation-fill-mode> <single-animation-direction> <keyframes-name>
+     1@)
+     <time>                                   3s
+     <easing-function>                        linear
+     <keyframes-name>                         slideHorizontal,
+
+     2@)
+     <time>                                   3s
+     <easing-function>                        ease-out
+     <time>                                   5s
+     <keyframes-name>                         slideMix */
+  animation:
+    /* Although you change <time> to the same ! ->  the animations are override */
+    3s linear slideHorizontal,
+    1s ease-out slideMix;
+}
+
+

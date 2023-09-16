@@ -1,0 +1,46 @@
+/* Define animations */
+@keyframes rise {
+  from {
+    /*  vh ===  viewport height
+    pushes the sun down past the viewport */
+    transform: translateY(110vh);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* This @keyframe is animating the same transform property */
+@keyframes bounce {
+  from {
+    transform: translateX(-50vw);
+  }
+  to {
+    transform: translateX(50vw);
+  }
+}
+
+/* Built-in pseudo class */
+:root {
+  overflow: hidden;           /* hides any part of the sun below the horizon */
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+}
+
+.sun {
+  background-color: yellow;
+  border-radius: 50%;         /* creates a circular background */
+  height: 100vh;
+  aspect-ratio: 1 / 1;
+  /*
+    animations declared later in the cascade will override the transform
+    property of previously declared animations, since it's the same property
+  */
+  /* bounce 'overwrites' the transform set by rise, hence the sun only moves horizontally */
+  animation:
+    4s linear 0s infinite alternate rise,
+    2s linear 0s infinite alternate bounce;
+}
+
+

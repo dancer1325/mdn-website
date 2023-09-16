@@ -1,0 +1,20 @@
+/* Define the @keyframes animation */
+@keyframes slideIn {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(200px); }
+}
+
+/* Type / Tag CSS Selector */
+circle {
+  /* Check the formal syntax of animation
+    animation = <time> <easing-function> <time> <single-animation-iteration-count> <single-animation-direction> <single-animation-fill-mode> <single-animation-play-state> <keyframes-name>
+     <time>                                   3s
+     <easing-function>                        ease-in
+     <time>                                   1s
+     <single-animation-iteration-count>       infinite
+     <single-animation-direction>             reverse
+     <single-animation-fill-mode>             both
+     <single-animation-play-state>            running
+     <keyframes-name>                         slideIn */
+  animation: 3s ease-in 1s infinite reverse both running slideIn;
+}

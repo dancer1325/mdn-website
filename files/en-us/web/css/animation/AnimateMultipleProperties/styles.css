@@ -1,0 +1,43 @@
+/* Define the animation
+      it is possible to animate multiple properties in a single animation */
+@keyframes animating-multiple-properties {
+  /* Multiple properties are being animated such as
+        transform
+        background-color
+  */
+  from {
+    transform: translateY(110vh); /* vh   === Viewport Height */
+    background-color: red;
+    filter: brightness(75%);
+  }
+  to {
+    transform: translateY(0);
+    background-color: orange;
+    /* unset properties i.e. 'filter' will revert to default values */
+  }
+}
+
+:root {
+  overflow: hidden;     /* hides any part of the sun below the horizon */
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+}
+
+.sun {
+  background-color: yellow;
+  border-radius: 50%;   /* creates a circular background */
+  height: 100vh;        /* makes the sun the size of the viewport */
+  aspect-ratio: 1 / 1;
+  /* animation
+    <time>                                  4s
+    <easing-function>                       linear
+    <time>                                  0s
+    <single-animation-iteration-count>      infinite
+    <single-animation-direction>            alternate
+    <keyframes-name>                        animating-multiple-properties
+    */
+  animation: 4s linear 0s infinite alternate animating-multiple-properties;
+}
+
+

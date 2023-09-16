@@ -1,0 +1,41 @@
+/* Define the animations */
+@keyframes rise {
+  from {
+    /*  vh ===  viewport height
+    pushes the sun down past the viewport */
+    transform: translateY(110vh);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes psychedelic {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Built-in pseudo class */
+:root {
+  overflow: hidden;     /* hides any part of the sun below the horizon */
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+}
+
+.sun {
+  background-color: yellow;
+  border-radius: 50%;   /* creates a circular background */
+  height: 100vh;
+  aspect-ratio: 1 / 1;
+  /* multiple animations are separated by commas, each animation's parameters are set independently */
+  animation:
+    4s linear 0s infinite alternate rise,
+    24s linear 0s infinite psychedelic;
+}
+
+
