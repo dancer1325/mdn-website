@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTMLElement:contentEditable</title>
+</head>
+
+<body>
+<!-- 1. default -->
+<p >Default behavior</p>  <!-- Do NOT specify == default behavior -->
+
+<!-- 2. true-->
+<p contenteditable="true">[true] Content editable</p>
+<!-- inherited by children components -->
+<div contenteditable="true" style="border: 1px solid #ccc; padding: 10px;">
+  [true]
+  <p> This is a parent element with contenteditable set to true.</p>
+  <p> Child element without explicit contenteditable attribute:</p>
+  <div>
+    This content will inherit the contentEditable behavior from its parent.
+    You can edit the text within this div.
+  </div>
+</div>
+
+<!-- 3. false -->
+<p contenteditable="false">[false] Content NOT editable</p>
+
+<!-- 4. plaintext-only -->
+<div contenteditable="plaintext-only" style="border: 1px solid #ccc; padding: 10px;">
+  [plaintext-only] Type or paste formatted content here:
+  <br>
+  <b>This should not be bold.</b>
+  <i>This should not be italic.</i>
+  <u>This should not be underlined.</u>
+</div>
+
+<script>
+  function showContent() {
+    var content = document.querySelector('[contenteditable="plaintext-only"]').textContent;
+    console.log(content);
+  }
+</script>
+<button onclick="showContent()">Show Content</button>
+
+<!-- 5. inherit -->
+<!-- Parent of this element is the DOM which is NOT contentEditable -->
+<div contenteditable="inherit" style="border: 1px solid #ccc; padding: 10px;">
+  [inherit]
+  <p>This is a parent element with contenteditable set to inherit.</p>
+  <p>Child element without explicit contenteditable attribute:</p>
+  <div>
+    This content will inherit the contentEditable behavior from its parent.
+    You can edit the text within this div.
+  </div>
+</div>
+
+</body>
+</html>
