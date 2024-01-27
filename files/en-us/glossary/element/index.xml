@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- NOT allowed multiple root tags
+<emptyElement />
+-->
+<webpage>
+  <!-- data item -->
+  <list>
+    <item>Structured data</item>
+    <item>Easy to process</item>
+    <item>Not for rendering</item>
+  </list>
+
+  <!-- chunk of text -->
+  <paragraph>
+    Hello, and welcome to my XML-based webpage. This is just an example to demonstrate XML structure.
+  </paragraph>
+
+  <!-- image -->
+  <imageData>
+    <imageName>anatomy-of-an-html-element.png</imageName>
+    <imageWidth>300</imageWidth>
+    <imageHeight>200</imageHeight>
+  </imageData>
+
+  <!-- nothing -->
+  <emptyElement />
+
+</webpage>
