@@ -22,6 +22,5 @@
   * It's redundant since ALL REST by default are inheir by their children
     * Check https://github.com/mdn/content/issues/22048
 
-
 ## How to run locally?
 * Open 'index.html' in your browser 
