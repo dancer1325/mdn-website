@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTMLElement</title>
+</head>
+<body>
+
+<!-- Create various HTML elements -->
+<div id="myDiv" class="example">This is a div element</div>
+<p id="myParagraph">This is a paragraph element</p>
+<button id="myButton">Click me</button>
+<img id="myImage" src="https://example.com/image.jpg" alt="Example Image">
+
+<script>
+  function isHTMLElementInstance(instance) {
+    if (instance instanceof HTMLElement) {
+      console.log(instance.localName," is instance of HTMLElement: true ");
+      return;
+    }
+    console.log(instance.localName," is instance of HTMLElement: false ");
+  }
+
+  function isElementInstance(instance) {
+    if (instance instanceof Element) {
+      console.log(instance.localName," is instance of Element: true ");
+      return;
+    }
+    console.log(instance.localName," is instance of Element: false ");
+  }
+
+  function isNodeInstance(instance) {
+    if (instance instanceof Node) {
+      console.log(instance.localName," is instance of Node: true ");
+      return;
+    }
+    console.log(instance.localName," is instance of Node: false ");
+  }
+
+  function isEventTargetInstance(instance) {
+    if (instance instanceof EventTarget) {
+      console.log(instance.localName," is instance of EventTarget: true ");
+      return;
+    }
+    console.log(instance.localName," is instance of EventTarget: false ");
+  }
+
+  // Access and manipulate HTML elements using HTMLElement interface
+  function manipulateElements() {
+    // Access a div element
+    const divElement = document.getElementById('myDiv');
+    divElement.style.color = 'blue';
+    isHTMLElementInstance(divElement);
+    isElementInstance(divElement);
+    isNodeInstance(divElement);
+    isEventTargetInstance(divElement);
+
+    // Access a paragraph element
+    const paragraphElement = document.getElementById('myParagraph');
+    paragraphElement.innerHTML = 'This paragraph has been modified';
+    isHTMLElementInstance(paragraphElement);
+    isElementInstance(paragraphElement);
+    isNodeInstance(paragraphElement);
+    isEventTargetInstance(paragraphElement);
+
+    // Access a button element
+    const buttonElement = document.getElementById('myButton');
+    buttonElement.addEventListener('click', function() {
+      alert('Button clicked!');
+    });
+    isHTMLElementInstance(buttonElement);
+    isElementInstance(buttonElement);
+    isNodeInstance(buttonElement);
+    isEventTargetInstance(buttonElement);
+
+    // Access an image element
+    const imageElement = document.getElementById('myImage');
+    imageElement.style.border = '2px solid red';
+    isHTMLElementInstance(imageElement);
+    isElementInstance(imageElement);
+    isNodeInstance(imageElement);
+    isEventTargetInstance(imageElement);
+  }
+
+  // Call the function to manipulate elements
+  manipulateElements();
+</script>
+
+</body>
+</html>
