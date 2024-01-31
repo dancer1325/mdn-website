@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>span</title>
+  <link rel="stylesheet"  href="index.css" type="text/css">
+
+  <span>Span added in the head</span>
+</head>
+<body>
+<!-- inline & no effect on neither content nor layout-->
+<p>
+  Indicating the <span>inline</span>, <span>use of</span> span.
+</p>
+<span></span>
+
+<!-- You can apply style == adjust layout -->
+<p>Gradually add the <span class="styleToDiv">olive oil</span> while running the blender slowly.</p>
+
+<!-- vs div -->
+<div>
+  <p>Paragraph contained under div </p>
+</div>
+
+<!-- Attributes-->
+<!-- align      deprecated -> use CSS Grid or flexbox -->
+<!-- about      TODO: Why can it be passed? -- And it does NOT appear as global one -->
+<!-- accesskey    TODO: Has it some effect on div? -->
+<!-- autocapitalize    TODO: Has it some effect on div? -->
+<!-- autofocus It can be appreciated adding a class -->
+<!-- data-*  TODO: Add, checking first how it works  -->
+<!-- draggable    TODO: Has it some effect on div? -->
+<!-- enterkeyhint    TODO: Has it some effect on div? -->
+<!-- exportparts  TODO: Add, checking first how it works  -->
+<!-- inputmode  TODO: Has it some effect on div?  -->
+<!-- TODO: Check for the rest, from 'is' -->
+<p>
+<span about="Global attributes" accesskey="d" autocapitalize="on" autofocus class="styleToDiv" contenteditable="true" dir="rtl" draggable="true"
+     enterkeyhint="go" id="globalAttribute" inputmode="decimal">Global attributes</span>
+<span hidden="hidden">Other global attributes</span>
+
+<!-- role   Adding an accessibility value afterwards -->
+<span inert="true" role="link">
+  Other global attributes
+  <!-- Event not fired due to inert -->
+  <button type="button" id="button">Button</button>
+</span>
+</p>
+
+<!-- Tag omission   NOT allowed-->
+<!--<p> He<span> </p>-->
+
+<!-- Allowed parents -->
+<!-- 1. Flow content's element -->
+<div>
+  <span>Span with a flow element as parent</span>
+</div>
+<!-- 2. Phrase content's element -->
+<b>
+  Here
+  <span id="spanId">Span with a phrase element as parent</span>
+</b>
+<!-- 3. Other category content's element NOT allowed -->
+<!--<style>
+  <span> Not Allowed style as parent </span>
+</style>-->
+
+<!-- Accessibility -->
+<span role="alert">Alert role</span>
+
+<script src="index.js"></script>
+</body>
+
+<footer>
+  <div>Span added in the footer</div>
+</footer>
+</html>
