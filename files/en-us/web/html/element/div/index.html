@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>div</title>
+  <link rel="stylesheet" href="index.css">
+
+  <!-- TODO: How to pass the script with listeners based on HTML elements created in the body
+  <script src="index.js"></script>
+  -->
+
+  <div>Div added in the head</div>
+</head>
+<body>
+<div></div>
+<div>
+  <p>Paragraph contained under div </p>
+</div>
+
+<div class="styleToDiv">
+  <p>Paragraph contained under div with style "styleToDiv</p>
+</div>
+
+<!-- Group other HTML elements-->
+<div>
+  <p>Paragraph first</p>
+  <p>Paragraph second</p>
+</div>
+
+<!-- Passing some attributes-->
+<!-- align      deprecated -> use CSS Grid or flexbox -->
+<!-- about      TODO: Why can it be passed? -- And it does NOT appear as global one -->
+<!-- accesskey    TODO: Has it some effect on div? -->
+<!-- autocapitalize    TODO: Has it some effect on div? -->
+<!-- autofocus It can be appreciated adding a class -->
+<!-- data-*  TODO: Add, checking first how it works  -->
+<!-- draggable    TODO: Has it some effect on div? -->
+<!-- enterkeyhint    TODO: Has it some effect on div? -->
+<!-- exportparts  TODO: Add, checking first how it works  -->
+<!-- inputmode  TODO: Has it some effect on div?  -->
+<!-- TODO: Check for the rest, from 'is' -->
+<div about="Global attributes" accesskey="d" autocapitalize="on" autofocus class="styleToDiv" contenteditable="true" dir="rtl" draggable="true"
+enterkeyhint="go" id="globalAttribute" inputmode="decimal">Global attributes</div>
+<div hidden="hidden">Other global attributes</div>
+
+<!-- role   Adding an accessibility value afterwards -->
+<div inert="true" role="link">
+  Other global attributes
+  <p>Descendants</p>
+  <!-- Event not fired due to inert -->
+  <button type="button" id="button">Button</button>
+</div>
+
+<script src="index.js"></script>
+<button type="button">Button</button>
+</body>
+
+<footer>
+  <div>Div added in the footer</div>
+</footer>
+</html>
