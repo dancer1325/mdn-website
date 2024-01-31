@@ -1,6 +1,6 @@
 # [div](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
 
-# Generic container for flow content
+# Generic block container for flow content
 * By default, NO effect on -- 'index.html', first and second div --
   * content or
   * layout
