@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<!-- Create various HTML elements -->
+<div id="myDiv" class="example">This is a div element</div>
+<p id="myParagraph">This is a paragraph element</p>
+<button id="myButton">Click me</button>
+<img id="myImage" src="https://example.com/image.jpg" alt="Example Image">
+
+<!-- == entry point to the DOM tree-->
+<!-- 1. Get access to the elements -->
+<script>
+  let divElement = document.getElementById("myDiv");
+  console.log("divElement.textContent ", divElement.textContent);
+</script>
+
+<!-- 2. Create elements -->
+<div id="container">Create elements - Original Content</div>
+<script>
+  // Creating a new element
+  var newParagraph = document.createElement("p");
+  newParagraph.textContent = "This is a dynamically created paragraph.";
+
+  // Adding the new element to the document
+  document.getElementById("container").appendChild(newParagraph);
+</script>
+
+<!-- 3. Manipulate the content -->
+<div id="divToManipulate">Original Text</div>
+<script>
+  // Accessing and manipulating the content of an element
+  var divWithContentToManipulate = document.getElementById("divToManipulate");
+  divWithContentToManipulate.textContent = "Modified Text";
+</script>
+
+<!-- 4. Event handling -->
+<button id="buttonToHandleEvent">Click me</button>
+<script>
+  // Attaching an event listener to the button element
+  document.getElementById("buttonToHandleEvent").addEventListener("click", function() {
+    alert("Button clicked!");
+  });
+</script>
+
+<!-- 5. Document structure -->
+<div id="parent">
+  <div id="child">Child Element</div>
+</div>
+<script>
+  // Accessing parent and child nodes
+  let parentElement = document.getElementById("parent");
+  let childElement = document.getElementById("child");
+
+  // Outputting the parent and child elements
+  console.log("Parent Element: " + parentElement.tagName);
+  console.log("Child Element: " + childElement.tagName);
+</script>
+
+<!-- Document extends from Node and EventTarget -->
+<script>
+  function isDocumentInstance(instance) {
+    if (instance instanceof Document) {
+      console.log(instance.nodeName," is instance of Document: true ");
+      return;
+    }
+    console.log(instance.nodeName," is instance of Document: false ");
+  }
+
+  function isNodeInstance(instance) {
+    if (instance instanceof Node) {
+      console.log(instance.nodeName," is instance of Node: true ");
+      return;
+    }
+    console.log(instance.nodeName," is instance of Node: false ");
+  }
+
+  function isEventTargetInstance(instance) {
+    if (instance instanceof EventTarget) {
+      console.log(instance.nodeName," is instance of EventTarget: true ");
+      return;
+    }
+    console.log(instance.nodeName," is instance of EventTarget: false ");
+  }
+
+  // Access and manipulate HTML elements using HTMLElement interface
+  function checkDocumentHierarchy() {
+    isDocumentInstance(document);
+    isNodeInstance(document);
+    isEventTargetInstance(document);
+  }
+
+  // Call the function to manipulate elements
+  checkDocumentHierarchy();
+</script>
+
+</body>
+</html>
