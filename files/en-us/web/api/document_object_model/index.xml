@@ -1,0 +1,115 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <circle id="firstCircle" cx="200" cy="100" r="50" fill="red" />
+  <rect x="50" y="50" width="100" height="100" fill="blue" />
+  <text x="20" y="190" fill="black" id="textElement">Hello, SVG!</text>
+
+  <!--
+  NOT allowed external scripts, just inline
+  <script src="index.js"></script>
+  -->
+
+  <!-- DOM is in memory -->
+  <script type="text/javascript">
+    if (document) {
+    console.log("DOM is in memory");
+    } else {
+    console.log("DOM is NOT in memory");
+    }
+  </script>
+
+  <!-- Nodes -->
+  <script type="text/javascript">
+    // 1. each branch of the tree — ends in a — node
+    function checkBranchesEndInLeaf(node) {
+    // Base case: if the node is a leaf node (no children), return true
+    if (node.childNodes.length === 0) {
+    return true;
+    }
+
+    // Recursively check each child node
+    for (let i = 0; i &lt; node.childNodes.length; i++) {
+    const childNode = node.childNodes[i];
+    if (!checkBranchesEndInLeaf(childNode)) {
+    return false; // If any child node doesn't end in a leaf node, return false
+    }
+    }
+
+    // If all child nodes end in a leaf node, return true
+    return true;
+    }
+
+    // Call the function with the root node of the DOM tree
+    const root = document.documentElement; // Get the root HTMLElement of the document
+    const branchesEndInLeaf = checkBranchesEndInLeaf(root);
+
+    // Output the result
+    if (branchesEndInLeaf) {
+    console.log("Each branch ends in a leaf node.");
+    } else {
+    console.log("Not every branch ends in a leaf node.");
+    }
+
+    // 2. objects / node
+    function checkObjectsPerNode(node) {
+    // Check if the node itself is an object
+    if (typeof node === 'object' &amp; node !== null) {
+    console.log("Node: ", node, " is an object");
+    }
+
+    // Check if the node has any properties (excluding functions)
+    for (const prop in node) {
+    if (typeof node[prop] === 'object' &amp; node[prop] !== null) {
+    console.log("Object associated with node:", node[prop]);
+    }
+    }
+
+    // Recursively check child nodes
+    for (let i = 0; i &lt; node.childNodes.length; i++) {
+    checkObjectsPerNode(node.childNodes[i]);
+    }
+    }
+
+    checkObjectsPerNode(root);
+
+    // 3. event handlers / node
+    // Add a click event handler to each node
+    function addClickHandlersPerNode(node) {
+    // Add a click event handler to the node
+    node.addEventListener('click', function() {
+    console.log('Clicked on node:', node);
+    });
+
+    // Recursively add event handlers to child nodes
+    for (let i = 0; i &lt; node.childNodes.length; i++) {
+    addClickHandlersPerNode(node.childNodes[i]);
+    }
+    }
+
+    addClickHandlersPerNode(root);
+  </script>
+
+  <!-- Methods allowed -->
+  <script type="text/javascript">
+    // 1. Change document's structure
+    const newRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    newRect.setAttribute("x", "80");
+    newRect.setAttribute("y", "80");
+    newRect.setAttribute("width", "100");
+    newRect.setAttribute("height", "100");
+    newRect.setAttribute("fill", "green");
+    document.firstChild.appendChild(newRect);   // There is 1! child in SVG DOM
+
+    // 2. Change document's style
+    const firstCircle = document.getElementById("firstCircle");
+    firstCircle.setAttribute('fill', 'yellow');
+
+    // 3. Change document's content
+    const text = document.getElementById('textElement');
+    text.textContent="New textContent changed";
+  </script>
+
+  <!-- SVG DOM - described by - Document + SVG-specific features -->
+  <script type="text/javascript">
+    console.log("document.firstChild ", document.firstChild);
+  </script>
+</svg>
