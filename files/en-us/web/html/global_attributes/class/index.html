@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTMLGlobalAttribute:class</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+<!-- ==  caseSensitiveClass1 caseSensitiveClass2 … -->
+<div class="div-first-class1 div-first-class2">First div</div>
+<div class="div-first-Class1">Second div</div>
+
+
+
+<!-- caseSensitiveClassi allows -->
+<!-- 1. setting the style — via — CSS Class Selectors -->
+<!-- Check previous examples-->
+<!-- 2. getting the HTML element — via — JS functions -->
+<script>
+  const secondDiv = document.getElementsByClassName("div-first-Class1");
+  console.log("secondDiv ", secondDiv); // It's a HTMLCollection
+  console.log("secondDiv[0] ", secondDiv[0]); // First element
+</script>
+
+
+
+<!-- naming should describe semantic purpose of the element -->
+<section class="article-list">
+  <article class="article">
+    <h2 class="article-title">Article 1</h2>
+    <p class="article-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </article>
+  <article class="article">
+    <h2 class="article-title">Article 2</h2>
+    <p class="article-content">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </article>
+</section>
+
+</body>
+</html>

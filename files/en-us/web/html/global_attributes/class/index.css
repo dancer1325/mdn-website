@@ -1,0 +1,40 @@
+/*     == caseSensitiveClass1 caseSensitiveClass2 … */
+.div-first-class1 {
+  color: #3eacb0;
+}
+.div-first-class2 {
+  background-color: #861f4c;
+}
+/* Another classSelector since it's case sensitive */
+.div-first-Class1 {
+  color: #6c373f;
+}
+
+
+/*          classSelectors names describing the semantic purpose */
+/* Styles for the article list section */
+.article-list {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+/* Styles for individual articles */
+.article {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+/* Styles for article titles */
+.article-title {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Styles for article content */
+.article-content {
+  color: #666;
+}
