@@ -7,6 +7,8 @@
 * children can, in any direction, -- 'index.html' --
   * grow
   * shrink
+* fill all the space designated -- 'index.html' --
+  * Check that the flex container's children fill all the `height` designated to the container 
 
 # Notes:
 * Check the basic example in repo 'mdn/css-examples/flexbox'
