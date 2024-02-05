@@ -1,6 +1,8 @@
 # := Module which
 * == CSS box model optimized
   * TODO: Why is it a CSS box model?
+  * for layout of items in 1D -- 'index.html' --
+    * Compare `.container` vs `.containertwo`
 ## characteristics
 * children can, in any direction, -- 'index.html' --
   * grow

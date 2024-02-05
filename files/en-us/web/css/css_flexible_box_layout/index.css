@@ -3,6 +3,15 @@
   width: 300px; /* Set a fixed width for demonstration purposes */
   height: 200px; /* Set a fixed height for demonstration purposes */
   border: 1px solid black;
+  /*flex-direction: row;    By default*/
+}
+
+.containertwo {
+  display: flex;
+  flex-direction: column;
+  width: 300px; /* Set a fixed width for demonstration purposes */
+  height: 200px; /* Set a fixed height for demonstration purposes */
+  border: 1px solid black;
 }
 
 .item {
