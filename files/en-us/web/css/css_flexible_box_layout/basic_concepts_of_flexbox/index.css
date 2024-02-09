@@ -1,0 +1,27 @@
+.container {
+  /*display: flex;  NOT specified -> NOT CSS Flexbox model*/
+  width: 300px; /* Set a fixed width for demonstration purposes */
+  height: 200px; /* Set a fixed height for demonstration purposes */
+  border: 1px solid black;
+}
+
+.item {
+  flex: 1; /* Equivalent to flex-grow: 1; flex-shrink: 1; */
+  border: 1px solid red;
+  margin: 5px;
+  padding: 10px;
+}
+
+.containertwo {
+  display: flex;
+  width: 300px; /* Set a fixed width for demonstration purposes */
+  height: 200px; /* Set a fixed height for demonstration purposes */
+  border: 1px solid black;
+}
+
+.itemtwo {
+  /*flex: 1; */   /* No flex specified to the items*/
+  border: 1px solid red;
+  margin: 5px;
+  padding: 10px;
+}

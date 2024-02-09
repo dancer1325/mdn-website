@@ -1,0 +1,21 @@
+.container {
+  border: 2px solid black;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.item {
+  width: 50px;
+  height: 50px;
+  background-color: skyblue;
+  margin: 5px;
+  flex: 1;    /* TODO: It's necessary for the Flex items? */
+}
+
+.block-flex {
+  display: flex; /* == block flex -- Displaying the container as a block-level flex container */
+}
+
+.inline-flex {
+  display: inline-flex; /* Displaying the container as an inline-level flex container */
+}

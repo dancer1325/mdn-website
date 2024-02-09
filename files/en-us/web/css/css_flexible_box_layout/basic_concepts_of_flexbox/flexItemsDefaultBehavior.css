@@ -1,0 +1,27 @@
+.container {
+  border: 2px solid black;
+  padding: 10px;
+  margin-bottom: 20px;
+  height: 200px;
+}
+
+.item {
+  width: 50px;
+  height: 50px;
+  background-color: skyblue;
+  margin: 5px;
+  /* flex: 1;    Comment it, to get the default behavior */
+}
+
+.itemHeigher {
+  width: 50px;
+  height: 190px;
+  background-color: skyblue;
+  margin: 5px;
+  /* flex: 1;    Comment it, to get the default behavior */
+}
+
+.block-flex {
+  display: flex; /* == block flex -- Displaying the container as a block-level flex container */
+}
+
