@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic concepts of flexbox</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<!-- Check that it's a priority list of fonts -->
+<p class="fonts">font-family list a priority of fonts</p>
+
+<!-- Check that font-family is inherited from the parent element -->
+<div class="fonts">
+  <p class="fonts_inherit">CSS-wide keyword - inherit</p>
+</div>
+
+<!-- Check that font-family is the initial from the document one -->
+<div class="fonts">
+  <p class="fonts_initial">CSS-wide keyword - initial</p>
+</div>
+
+<!-- Check that font-family's priority one "Apple Color Emoji" is reverted and applied the parent one -->
+<div class="fonts">
+  <p class="fonts_revert">CSS-wide keyword - revert</p>
+</div>
+
+<!-- TODO: Check how revert-layer work -->
+<div class="fonts">
+  <p class="fonts_revert_layer">CSS-wide keyword - revert-layer</p>
+</div>
+
+<div class="fonts">
+  <p class="fonts_unset">CSS-wide keyword - unset</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+.fonts {
+  font-family: cursive, Sana;
+}
+
+/* inherit    from the parent element */
+.fonts_inherit {
+  font-family: inherit;
+}
+
+/* initial    from the document */
+.fonts_initial {
+  font-family: initial;
+}
+
+/* revert    revert the fonts added at this level (priorities one) & add the parent one */
+.fonts_revert {
+  font-family: "Apple Color Emoji", revert;
+}
+
+.fonts_revert_layer {
+  font-family: "Apple Braille", revert-layer;
+}
+
+/* unset    unset all values passed to the inherited or initial value */
+.fonts_unset {
+  font-family: "Apple Braille", "Tamil MN", "Arial Hebrew", unset;
+}
