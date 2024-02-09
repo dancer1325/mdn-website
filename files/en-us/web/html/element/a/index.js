@@ -25,3 +25,5 @@ function createDataURL() {
 
 const dataAnchorHTMLElement = document.getElementById('dataSchema');
 dataAnchorHTMLElement.setAttribute('href', createDataURL());
+
+console.log("window.opener ", window.opener);

@@ -33,5 +33,15 @@
 </ul>
 <script src="index.js"></script>
 
+<h2>target</h2>
+<ul>
+  <li><a href="README.md" >self - default </a></li>
+  <li><a href="README.md" target="_self">self - specified </a></li>
+  <li><a href="README.md" target="_blank">blank </a></li>
+  <a href="README.md" rel="noopener">target blank vs rel noopener</a>
+  <!-- Insert other inner documents, to prove the _parent & _top behavior-->
+  <li><iframe src="child.html"></iframe> </li>
+  <li><iframe src="anotherChild.html"></iframe> </li>
+</ul>
 </body>
 </html>

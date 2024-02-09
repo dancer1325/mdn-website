@@ -38,6 +38,21 @@
   * vs `Content-Disposition` -- TODO: --
     * if Content-Disposition’s `filename` is specified → priority over `download ’s name` specified
     * if Content-Disposition’s `inline` is specified → `download` has priority
+* `target`
+  * where to display the linked URL
+    * `_self`
+      * default one
+      * current browsing context
+    * `_blank`
+      * depends on browser’s configuration
+        * new tab
+        * new window
+      * == `rel=”noopener”` & not set `window.opener`
+        * Check the same behavior & in the browser's devtools console the value of window.opener
+    * `_parent`
+      * parent browsing context
+    * `_top`
+      * topmost browsing context
 * TODO: 
 
 # Accessibility
