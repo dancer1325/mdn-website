@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><a></title>
+</head>
+<body>
+<h1>Create a hyperlink to</h1>
+<ul>
+  <li><a href="https://example.com">Website</a></li>
+  <li><a href="mailto:m.bluth@example.com">Email</a></li>
+  <li><a href="tel:+123456789">Phone</a></li>
+  <li><a href="#section2">Another location</a></li>
+  <li><a href="README.md">File</a></li>
+  <li><a href="sms:+676441586">SMS</a></li>
+</ul>
+
+<p id="section1">Section 1</p>
+<p id="section2">Section 2</p>
+
+<br>
+
+<h1>Attributes</h1>
+<h2>download</h2>
+<ul>
+  <li><a href="README.md" download="aa.md">Download README.md</a></li>
+  <li><a href="README.md" download="a/a\a.md">Download README.md - fileName provided</a></li>
+  <li><a href="README.md" download="">Download README.md - fileName NOT provided</a></li>
+  <li><a href="https://example.com/image.jpg" download>Cross origin policy</a></li>
+  <li><a id="blobSchema" download="blob.txt">Blob schema</a></li>
+  <li><a id="dataSchema" download="data.txt">Data schema</a></li>
+</ul>
+<script src="index.js"></script>
+
+</body>
+</html>
