@@ -1,0 +1,9 @@
+@import "toBeImported.css";
+
+.first-div{
+  color: #861f4c;
+}
+
+.second-div{
+  color: #3eacb0;
+}
