@@ -1,5 +1,24 @@
+/*                            --  CSS declaration   --               */
+/* CSSSelector */
+h3 {
+  /*CSSProperty: PropertyValue*/
+  cOlor: red; /* CSSProperty case insensitive & PropertyValue as keyword */
+  background-color: #fF9500; /* PropertyValue case insensitive & PropertyValue as numeric value */
+  background-colorR: #ff9500; /* CSSProperty NON existing */
+  box-shadow: #3eacb000000; /* PropertyValue NON existing */
+  height: calc(10px + 100px); /* PropertyValue as function */
+}
+
+
+/*                          -- 1!CSS ruleset applied to multiple CSSSelectors  --    */
+p,
+#MyId {
+  background: aqua;
+}
+
+
 /*                            --  CSSSelector types   --               */
-/* 1.1 Element selector */
+/* 1.1 Element / Tag selector */
 p {
   color: red;
 }
@@ -28,22 +47,6 @@ a:hover {
   color: red;
 }
 
-/* 1.6 Descendant combinator selector */
-div p {
-  background-color: indigo;
-}
-
-/* 1.6.1 Descendant combinator selector must not!! be direct descendants  */
-div em {
-  background-color: teal;
-}
-
-/* 1.7 Adjacent sibling combinator  */
-div + a {
-  background-color: dodgerblue;
-}
-
-/* 1.8 Based on the state  */
 a:focus {
   background-color: lightsalmon;
 }
@@ -52,7 +55,38 @@ a:visited {
   background-color: crimson;
 }
 
-/* Combine different type of selectors is possible  */
+/* 1.6 Combinator selector */
+/* 1.6.1 Descendant combinator selector */
+div p {
+  background-color: indigo;
+}
+
+/* 1.6.1.1 Descendant combinator selector must not!! be direct descendants  */
+div em {
+  background-color: teal;
+}
+
+/* 1.6.2 Direct descendants  */
+span + p {
+  font-family: "Arial Hebrew";
+}
+
+/* 1.6.3 Adjacent sibling combinator  */
+div + a {
+  background-color: dodgerblue;
+}
+
+/* 1.7 Pseudo-element selector  */
+footer::after {
+  content: 'Pseudo element after';
+}
+footer::before {
+  content: 'Pseudo element before ';
+}
+
+
+                  /* Combine different type of selectors is possible  */
+/* CSSSelector is identified from right --> left */
 /* Element which
  1. .special class (Class selector) &
  2. inside of p (descendant combinator selector) &
@@ -64,13 +98,6 @@ body h2 + p .special {
   padding: 5px;
 }
 
-
-
-/*                          -- 1!CSS ruleset applied to multiple CSSSelectors  --    */
-p,
-#MyId {
-  background: aqua;
-}
 
 /*                          -- Use Google Fonts  --    */
 html {
