@@ -1,0 +1,38 @@
+/*                                             Compound selector  */
+/* ElementSelector IDSelector */
+p#MyId {
+  color: #3eacb0;
+}
+
+/* Restrictions */
+/* 1. type selectors and universal selectors must come as first elements */
+*.color {
+  color: red;
+}
+/* Next one is wrong -> no effect at all */
+.color* {
+  background-color: #431236;
+}
+span.color {
+  color: green;
+}
+/* Next one is wrong, since it's NOT able to identify as compound selector */
+.colorspan {
+  color: green;
+}
+
+/* 2. type selectors and universal selectors just allowed 1! */
+/* Next one is wrong -> no effect at all */
+**.color {
+  background-color: #375e97;
+}
+/* Next one is wrong, since it's NOT able to identify as compound selector */
+span.colorspan {
+  background-color: #fb6542;
+}
+
+/* 3. NOT whitespaces allowed between the simple selectors */
+/* Got as descendant combinator */
+p .color {
+  background-color: #fb6542;
+}
