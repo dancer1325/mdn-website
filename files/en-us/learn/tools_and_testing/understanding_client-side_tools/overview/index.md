@@ -4,6 +4,8 @@ slug: Learn/Tools_and_testing/Understanding_client-side_tools/Overview
 page-type: learn-module-chapter
 ---
 
+* TODO:
+
 {{LearnSidebar}}{{NextMenu("Learn/Tools_and_testing/Understanding_client-side_tools/Command_line", "Learn/Tools_and_testing/Understanding_client-side_tools")}}
 
 In this article, we provide an overview of modern web tooling, what kinds of tools are available and where you'll meet them in the lifecycle of web app development, and how to find help with individual tools.
@@ -90,11 +92,19 @@ Code formatters are somewhat related to linters, except that rather than point o
 
 #### Bundlers/packagers
 
-These are tools that get your code ready for production, for example by "tree-shaking" to make sure only the parts of your code libraries that you are actually using are put into your final production code, or "minifying" to remove all the whitespace in your production code, making it as small as possible before it is uploaded to a server.
-
-[Parcel](https://parceljs.org/) is a particularly clever tool that fits into this category — it can do the above tasks, but also helps to package assets like HTML, CSS, and image files into convenient bundles that you can then go on to deploy, and also adds dependencies for you automatically whenever you try to use them. It can even handle some code transformation duties for you.
-
-[Webpack](https://webpack.js.org/) is another very popular packaging tool that does similar things.
+* == tools / get your code -- ready for -- production
+  * == BEFORE uploading | server
+  * _Examples of techniques:_
+    * _Example1:_ "tree-shaking" / ONLY the parts of your code libraries / you are actually using -> are put | your FINAL production code,
+    * _Example2:_ "minifying" == remove ALL the whitespace | your production code
+  * _Example of tools:_
+    * [Parcel](https://parceljs.org/)
+      * features
+        * PREVIOUS techniques
+        * package assets (HTML, CSS, and image files) | convenient bundles / you can then go on to deploy
+        * adds dependencies for you automatically | whenever you try to use them
+        * handle SOME code transformation duties for you
+    * [Webpack](https://webpack.js.org/)
 
 ### Transformation
 
