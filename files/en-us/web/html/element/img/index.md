@@ -7,15 +7,24 @@ browser-compat: html.elements.img
 
 {{HTMLSidebar}}
 
-The **`<img>`** [HTML](/en-US/docs/Web/HTML) element embeds an image into the document.
+* `<img>`
+  * == [HTML](/en-US/docs/Web/HTML) element / embeds an image | document
 
+* _Example:_ 
 {{EmbedInteractiveExample("pages/tabbed/img.html", "tabbed-standard")}}
 
-The above example shows usage of the `<img>` element:
+* `src` attribute
+  * == pathToTheImage / you want to embed
+  * MANDATORY
+* `alt` attribute
+  * == textual replacement -- for the -- image
+  * MANDATORY
+  * uses
+    * accessibility
+      * Reason: 🧠 screen readers read it 🧠
+    * the image can NOT be loaded (_Example: network errors, content blocking, or linkrot)
 
-- The `src` attribute is **required**, and contains the path to the image you want to embed.
-- The `alt` attribute holds a textual replacement for the image, which is mandatory and **incredibly useful** for accessibility — screen readers read the attribute value out to their users so they know what the image means. Alt text is also displayed on the page if the image can't be loaded for some reason: for example, network errors, content blocking, or linkrot.
-
+* TODO:
 There are many other attributes to achieve various purposes:
 
 - [Referrer](/en-US/docs/Web/HTTP/Headers/Referrer-Policy)/{{glossary("CORS")}} control for security and privacy: see [`crossorigin`](#crossorigin) and [`referrerpolicy`](#referrerpolicy).
