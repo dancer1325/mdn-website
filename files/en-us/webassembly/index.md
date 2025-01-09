@@ -5,9 +5,12 @@ page-type: landing-page
 spec-urls: https://webassembly.github.io/spec/js-api/
 ---
 
+* TODO:
+
 {{WebAssemblySidebar}}
 
-WebAssembly is a type of code that can be run in modern web browsers — it is a low-level assembly-like language with a compact binary format that runs with near-native performance and provides languages such as C/C++, C# and Rust with a compilation target so that they can run on the web. It is also designed to run alongside JavaScript, allowing both to work together.
+WebAssembly is a type of code that can be run in modern web browsers — it is a low-level assembly-like language with a compact binary format that runs with near-native performance and provides languages such as C/C++, C# and Rust with a compilation target so that they can run on the web.
+It is also designed to run alongside JavaScript, allowing both to work together.
 
 ## In a Nutshell
 

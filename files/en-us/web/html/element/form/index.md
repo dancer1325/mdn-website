@@ -5,13 +5,15 @@ page-type: html-element
 browser-compat: html.elements.form
 ---
 
-{{HTMLSidebar}}
+* `<form>`
+  * := [HTML](../..) element / 
+    * 👀== document section / with interactive controls -- for submitting -- information 👀
+  * ways to style
+    * based on whether `HTMLFormElement.elements` -> you can use the [CSS pseudo-classes](/en-US/docs/Web/CSS/Pseudo-classes)
+      * `:valid`
+      * `:invalid`
 
-The **`<form>`** [HTML](/en-US/docs/Web/HTML) element represents a document section containing interactive controls for submitting information.
-
-{{EmbedInteractiveExample("pages/tabbed/form.html", "tabbed-standard")}}
-
-It is possible to use the {{cssxref(':valid')}} and {{cssxref(':invalid')}} CSS [pseudo-classes](/en-US/docs/Web/CSS/Pseudo-classes) to style a `<form>` element based on whether the {{domxref("HTMLFormElement.elements", "elements")}} inside the form are valid.
+* _Example:_ [here](https://github.com/dancer1325/mdn-interactive-examples/blob/main/live-examples/html-examples/forms/form.html)
 
 ## Attributes
 
