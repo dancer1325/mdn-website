@@ -7,6 +7,8 @@ browser-compat: html.elements.label
 
 {{HTMLSidebar}}
 
+* TODO:
+
 The **`<label>`** [HTML](/en-US/docs/Web/HTML) element represents a caption for an item in a user interface.
 
 {{EmbedInteractiveExample("pages/tabbed/label.html", "tabbed-shorter")}}
