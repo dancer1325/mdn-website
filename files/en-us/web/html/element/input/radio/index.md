@@ -7,29 +7,39 @@ browser-compat: html.elements.input.type_radio
 
 {{HTMLSidebar}}
 
-{{htmlelement("input")}} elements of type **`radio`** are generally used in **radio groups**—collections of radio buttons describing a set of related options.
+* `<input type="radio" ...`
+  * appearance,
+    * TYPICALLY, SMALL circles / if you select -> they are filled or highlighted
+  * Reason of the naming: 🧠 's look & operate == old-fashioned radios' push buttons  🧠
 
-Only one radio button in a given group can be selected at the same time. Radio buttons are typically rendered as small circles, which are filled or highlighted when selected.
+    ![Shows what radio buttons looked like in the olden days.](old-radio.jpg) 
+  * use cases
+    * 👀radio groups—collections of radio buttons / 👀 
+      * describe set of related options
+      * 1! radio button can be selected | time
+  * _Example:_
 
-{{EmbedInteractiveExample("pages/tabbed/input-radio.html", "tabbed-standard")}}
+    {{EmbedInteractiveExample("pages/tabbed/input-radio.html", "tabbed-standard")}}
 
-They are called radio buttons because they look and operate in a similar manner to the push buttons on old-fashioned radios, such as the one shown below.
-
-![Shows what radio buttons looked like in the olden days.](old-radio.jpg)
-
-> **Note:** [Checkboxes](/en-US/docs/Web/HTML/Element/input/checkbox) are similar to radio buttons, but with an important distinction: radio buttons are designed for selecting one value out of a set, whereas checkboxes let you turn individual values on and off. Where multiple controls exist, radio buttons allow one to be selected out of them all, whereas checkboxes allow multiple values to be selected.
+  * == `<input type="checkbox" ...`
+    * see [checkbox](../checkbox) to check the difference
 
 ## Value
 
-The `value` attribute is a string containing the radio button's value. The value is never shown to the user by their {{Glossary("user agent")}}. Instead, it's used to identify which radio button in a group is selected.
+* TODO:
+The `value` attribute is a string containing the radio button's value. 
+The value is never shown to the user by their {{Glossary("user agent")}}. 
+Instead, it's used to identify which radio button in a group is selected.
 
 ### Defining a radio group
 
-A radio group is defined by giving each of radio buttons in the group the same [`name`](/en-US/docs/Web/HTML/Element/input#name). Once a radio group is established, selecting any radio button in that group automatically deselects any currently-selected radio button in the same group.
+A radio group is defined by giving each of radio buttons in the group the same [`name`](/en-US/docs/Web/HTML/Element/input#name). 
+Once a radio group is established, selecting any radio button in that group automatically deselects any currently-selected radio button in the same group.
 
 You can have as many radio groups on a page as you like, as long as each has its own unique `name`.
 
-For example, if your form needs to ask the user for their preferred contact method, you might create three radio buttons, each with the `name` property set to `contact` but one with the value `email`, one with the value `phone`, and one with the value `mail`. The user never sees the `value` or the `name` (unless you expressly add code to display it).
+For example, if your form needs to ask the user for their preferred contact method, you might create three radio buttons, each with the `name` property set to `contact` but one with the value `email`, one with the value `phone`, and one with the value `mail`. 
+The user never sees the `value` or the `name` (unless you expressly add code to display it).
 
 The resulting HTML looks like this:
 
@@ -54,7 +64,8 @@ The resulting HTML looks like this:
 </form>
 ```
 
-Here you see the three radio buttons, each with the `name` set to `contact` and each with a unique `value` that uniquely identifies that individual radio button within the group. They each also have a unique {{domxref("Element.id", "id")}}, which is used by the {{HTMLElement("label")}} element's [`for`](/en-US/docs/Web/HTML/Element/label#for) attribute to associate the labels with the radio buttons.
+Here you see the three radio buttons, each with the `name` set to `contact` and each with a unique `value` that uniquely identifies that individual radio button within the group.
+They each also have a unique {{domxref("Element.id", "id")}}, which is used by the {{HTMLElement("label")}} element's [`for`](/en-US/docs/Web/HTML/Element/label#for) attribute to associate the labels with the radio buttons.
 
 You can try out this example here:
 
@@ -62,15 +73,20 @@ You can try out this example here:
 
 ### Data representation of a radio group
 
-When the above form is submitted with a radio button selected, the form's data includes an entry in the form `contact=value`. For example, if the user clicks on the "Phone" radio button then submits the form, the form's data will include the line `contact=phone`.
+When the above form is submitted with a radio button selected, the form's data includes an entry in the form `contact=value`. 
+For example, if the user clicks on the "Phone" radio button then submits the form, the form's data will include the line `contact=phone`.
 
-If you omit the `value` attribute in the HTML, the submitted form data assigns the value `on` to the group. In this scenario, if the user clicked on the "Phone" option and submitted the form, the resulting form data would be `contact=on`, which isn't helpful. So don't forget to set your `value` attributes!
+If you omit the `value` attribute in the HTML, the submitted form data assigns the value `on` to the group. 
+In this scenario, if the user clicked on the "Phone" option and submitted the form, the resulting form data would be `contact=on`, which isn't helpful.
+So don't forget to set your `value` attributes!
 
 > **Note:** If no radio button is selected when the form is submitted, the radio group is not included in the submitted form data at all, since there is no value to report.
 
-It's fairly uncommon to actually want to allow the form to be submitted without any of the radio buttons in a group selected, so it is usually wise to have one default to the `checked` state. See [Selecting a radio button by default](#selecting_a_radio_button_by_default) below.
+It's fairly uncommon to actually want to allow the form to be submitted without any of the radio buttons in a group selected, so it is usually wise to have one default to the `checked` state. 
+See [Selecting a radio button by default](#selecting_a_radio_button_by_default) below.
 
-Let's add a bit of code to our example so we can examine the data generated by this form. The HTML is revised to add a {{HTMLElement("pre")}} block to output the form data into:
+Let's add a bit of code to our example so we can examine the data generated by this form.
+The HTML is revised to add a {{HTMLElement("pre")}} block to output the form data into:
 
 ```html
 <form>

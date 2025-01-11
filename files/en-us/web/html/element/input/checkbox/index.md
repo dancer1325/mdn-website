@@ -7,15 +7,29 @@ browser-compat: html.elements.input.type_checkbox
 
 {{HTMLSidebar}}
 
-{{htmlelement("input")}} elements of type **`checkbox`** are rendered by default as boxes that are checked (ticked) when activated, like you might see in an official government paper form. The exact appearance depends upon the operating system configuration under which the browser is running. Generally this is a square but it may have rounded corners. A checkbox allows you to select single values for submission in a form (or not).
-
-{{EmbedInteractiveExample("pages/tabbed/input-checkbox.html", "tabbed-standard")}}
-
-> **Note:** [Radio buttons](/en-US/docs/Web/HTML/Element/input/radio) are similar to checkboxes, but with an important distinction — [same-named radio buttons](/en-US/docs/Web/HTML/Element/input/radio#defining_a_radio_group) are grouped into a set in which only one radio button can be selected at a time, whereas checkboxes allow you to turn single values on and off. Where multiple same-named controls exist, radio buttons allow one to be selected out of them all, whereas checkboxes allow multiple values to be selected.
+* `<input type="checkbox" ...`
+  * by default, they are rendered -- as -- boxes / 
+    * if you tick -> they are activated
+    * 👀CONCRETE appearance -- depends upon the -- OS' configuration | browser is running 👀
+      * TYPICALLY, == square / MAYBE rounded corners
+  * use cases
+    * select form's values (>=1)
+  * _Example:_
+  
+    {{EmbedInteractiveExample("pages/tabbed/input-checkbox.html", "tabbed-standard")}}
+  
+  * vs [Radio buttons](/en-US/docs/Web/HTML/Element/input/radio)
+    * == in GENERAL
+    * EXCEPT TO, if MULTIPLE
+      * [SAME-named radio buttons](/en-US/docs/Web/HTML/Element/input/radio#defining_a_radio_group) -- are grouped into a -- set -> ⚠️ONLY 1! radio button can be selected | time ⚠️
+      * ⚠️SAME-named checkboxes -> MULTIPLE checkboxes can be selected | time ⚠️
 
 ## Value
 
-A string representing the value of the checkbox. This is not displayed on the client-side, but on the server this is the `value` given to the data submitted with the checkbox's `name`. Take the following example:
+* TODO:
+A string representing the value of the checkbox. 
+This is not displayed on the client-side, but on the server this is the `value` given to the data submitted with the checkbox's `name`. 
+Take the following example:
 
 ```html
 <form>
