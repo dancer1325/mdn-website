@@ -6,6 +6,7 @@ page-type: guide
 
 {{jsSidebar("JavaScript Guide")}} {{PreviousNext("Web/JavaScript/Guide/Loops_and_iteration", "Web/JavaScript/Guide/Expressions_and_operators")}}
 
+* TODO:
 Functions are one of the fundamental building blocks in JavaScript. A function in JavaScript is similar to a procedure—a set of statements that performs a task or calculates a value, but for a procedure to qualify as a function, it should take some input and return an output where there is some obvious relationship between the input and the output. To use a function, you must define it somewhere in the scope from which you wish to call it.
 
 See also the [exhaustive reference chapter about JavaScript functions](/en-US/docs/Web/JavaScript/Reference/Functions) to get to know the details.
@@ -337,50 +338,32 @@ foo(3);
 
 ### Nested functions and closures
 
-You may nest a function within another function. The nested (inner) function is private to its containing (outer) function.
+* nested (inner) function
+  * private to its containing (outer) function
+    * == -- can be accessed from -- outer function's ONLY statements 
+  * -- contains the -- scope of the outer function
+    * == -- has access to -- outer function's scope
+  * -- forms a -- closure ->
+    * inner function can use the outer function's 
+      * arguments
+      * variables
+    * ❌outer function can NOT use the inner function's ❌
+      * arguments
+      * variables
+  * == closure (⚠️ONLY, the inner function⚠️)
 
-It also forms a _closure_. A closure is an expression (most commonly, a function) that can have free variables together with an environment that binds those variables (that "closes" the expression).
-
-Since a nested function is a closure, this means that a nested function can "inherit" the arguments and variables of its containing function. In other words, the inner function contains the scope of the outer function.
-
-To summarize:
-
-- The inner function can be accessed only from statements in the outer function.
-- The inner function forms a closure: the inner function can use the arguments and variables of the outer function, while the outer function cannot use the arguments and variables of the inner function.
-
-The following example shows nested functions:
-
-```js
-function addSquares(a, b) {
-  function square(x) {
-    return x * x;
-  }
-  return square(a) + square(b);
-}
-
-console.log(addSquares(2, 3)); // 13
-console.log(addSquares(3, 4)); // 25
-console.log(addSquares(4, 5)); // 41
-```
-
-Since the inner function forms a closure, you can call the outer function and specify arguments for both the outer and inner function:
-
-```js
-function outside(x) {
-  function inside(y) {
-    return x + y;
-  }
-  return inside;
-}
-
-const fnInside = outside(3); // Think of it like: give me a function that adds 3 to whatever you give it
-console.log(fnInside(5)); // 8
-console.log(outside(3)(5)); // 8
-```
+* closure
+  * := expression (COMMONLY, a function) / can have 
+    * free variables
+    * environment / 
+      * binds those variables
 
 ### Preservation of variables
 
-Notice how `x` is preserved when `inside` is returned. A closure must preserve the arguments and variables in all scopes it references. Since each call provides potentially different arguments, a new closure is created for each call to `outside`. The memory can be freed only when the returned `inside` is no longer accessible.
+Notice how `x` is preserved when `inside` is returned. 
+A closure must preserve the arguments and variables in all scopes it references. 
+Since each call provides potentially different arguments, a new closure is created for each call to `outside`. 
+The memory can be freed only when the returned `inside` is no longer accessible.
 
 This is not different from storing references in other objects, but is often less obvious because one does not set the references directly and cannot inspect them.
 
