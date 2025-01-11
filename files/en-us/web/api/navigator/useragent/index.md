@@ -8,8 +8,11 @@ browser-compat: api.Navigator.userAgent
 
 {{ApiRef("HTML DOM")}}
 
-The **`Navigator.userAgent`** read-only property returns the
-user agent string for the current browser.
+* `Navigator.userAgent`
+  * == read-only property / 
+    * returns the current browser's user agent string 
+
+* TODO:
 
 > **Note:** The specification asks browsers to provide as little information via this field as
 > possible. Never assume that the value of this property will stay the same in future
