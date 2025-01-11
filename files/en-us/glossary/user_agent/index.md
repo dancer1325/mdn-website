@@ -6,15 +6,22 @@ page-type: glossary-definition
 
 {{GlossarySidebar}}
 
-A user agent is a computer program representing a person, for example, a {{Glossary("Browser","browser")}} in a {{Glossary("World Wide Web", "Web")}} context.
-
-Besides a browser, a user agent could be a bot scraping webpages, a download manager, or another app accessing the Web. Along with each request they make to the server, browsers include a self-identifying {{HTTPHeader("User-Agent")}} {{Glossary("HTTP")}} header called a user agent (UA) string. This string often identifies the browser, its version number, and its host operating system.
-
-Spam bots, download managers, and some browsers often send a fake UA string to announce themselves as a different client. This is known as _user agent spoofing_.
-
-The user agent string can be accessed with {{Glossary("JavaScript")}} on the client side using the {{domxref("Navigator/userAgent", "NavigatorID.userAgent")}} property.
-
-A typical user agent string looks like this: `"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0"`.
+* user agent
+  * := computer program / -- represent a -- person
+    * _Example:_ | {{Glossary("World Wide Web", "Web")}} context,
+      * {{Glossary("Browser","browser")}}
+      * bot scraping webpages
+      * download manager
+      * ANOTHER app / accesses the Web 
+  * if they make a request -- to the -- server,
+    * browsers
+      * include a self-identifying {{HTTPHeader("User-Agent")}} {{Glossary("HTTP")}} header / 
+        * named == user agent (UA) string
+        * == browser + its version number + its host OS
+    * Spam bots, download managers, SOME browsers
+      * ⚠️OFTEN, include fake UA string ⚠️ == _user agent spoofing_
+  * if you want to access -- via -- JS -> use {{domxref("Navigator/userAgent", `Navigator.userAgent`)}} property
+  * _Example:_ `"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0"`.
 
 ## See also
 
