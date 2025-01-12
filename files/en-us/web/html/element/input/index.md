@@ -7,15 +7,20 @@ browser-compat: html.elements.input
 
 {{HTMLSidebar}}
 
-* TODO:
-
-The **`<input>`** [HTML](/en-US/docs/Web/HTML) element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and {{Glossary("user agent")}}. The `<input>` element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
+* `<input>`
+  * == HTML element
+  * uses
+    * create interactive controls | web-based forms
+      * accept data -- from the -- user
+  * WIDE variety of types /
+    * -- depends on the -- device & {{Glossary("user agent")}}
 
 {{EmbedInteractiveExample("pages/tabbed/input-text.html", "tabbed-shorter")}}
 
 ## \<input> types
 
-How an `<input>` works varies considerably depending on the value of its [`type`](#type) attribute, hence the different types are covered in their own separate reference pages. If this attribute is not specified, the default type adopted is `text`.
+* ⚠️`<input>` works -- depend on the -- its [`type`](#type) attribute's value ⚠️
+* if `type` NOT specified -> `text` == default value 
 
 The available types are as follows:
 
@@ -36,7 +41,7 @@ The available types are as follows:
     <tr>
       <td>{{HTMLElement("input/button", "button")}}</td>
       <td>
-        A push button with no default behavior displaying the value of the <a href="#value"><code>value</code></a> attribute, empty by default.
+        == push / clickable button / NO default behavior displaying the value of the <a href="#value"><code>value</code></a> attribute == empty by default
       </td>
       <td id="examplebutton">
         <pre class="brush: html hidden">
@@ -46,7 +51,7 @@ The available types are as follows:
     </tr>
     <tr>
       <td>{{HTMLElement("input/checkbox", "checkbox")}}</td>
-      <td>A check box allowing single values to be selected/deselected.</td>
+      <td> == check box / allows SINGLE values to be selected/deselected.</td>
       <td id="examplecheckbox">
         <pre class="brush: html hidden">
 &#x3C;input type="checkbox" name="checkbox"/></pre>
@@ -56,7 +61,7 @@ The available types are as follows:
     <tr>
       <td>{{HTMLElement("input/color", "color")}}</td>
       <td>
-        A control for specifying a color; opening a color picker when active in supporting browsers.
+        == control for specifying a color / if browsers supports -> opens a 👀color picker 👀
       </td>
       <td id="examplecolor">
         <pre class="brush: html hidden">
@@ -67,7 +72,7 @@ The available types are as follows:
     <tr>
       <td>{{HTMLElement("input/date", "date")}}</td>
       <td>
-        A control for entering a date (year, month, and day, with no time).
+        TODO: A control for entering a date (year, month, and day, with no time).
         Opens a date picker or numeric wheels for year, month, day when active
         in supporting browsers.
       </td>
