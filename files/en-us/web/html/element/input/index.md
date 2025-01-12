@@ -17,7 +17,7 @@ browser-compat: html.elements.input
 
 {{EmbedInteractiveExample("pages/tabbed/input-text.html", "tabbed-shorter")}}
 
-## `<input type= >
+## <input type= >
 
 * ⚠️`<input>` works -- depend on the -- its [`type`](#type) attribute's value ⚠️
 * if `type` NOT specified -> `text` == default value 

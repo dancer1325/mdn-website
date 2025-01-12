@@ -13,10 +13,10 @@
 
 
 <!-- 3. Attributes -->
+<h1>ATTRIBUTES</h1>
 <!-- TODO:-->
 <!-- 3.? `checked` -->
-<br>
-<p>checked</p>
+<h2>checked`</h2>
 <input type="radio" name="checked radio" value="yes" >
 <input type="radio" name="checked radio" value="no" checked>
 
@@ -53,6 +53,7 @@
 
   <button type="submit">Submit Order</button>
 </form>
+<br>
 <script>
   // Show what data gets submitted
   document.getElementById('myForm').addEventListener('submit', function(e) {
@@ -75,6 +76,50 @@
 </script>
 
 <!-- 3.? `dirname` -->
+<!-- TODO:-->
+
+<!-- 3.? `value` -->
+<h2>`value`</h2>
+<input id="attributeValueButton" type="button">
+<input id="attributeValueCheckbox" type="checkbox">
+<input type="color" value="#ff0000">
+<input type="date" value="2024-01-20">
+<input type="datetime-local" value="2024-01-20T13:30">
+<input type="email" value="user@example.com">
+<input type="file" value="file">
+<input type="hidden" value="secretValue">
+<input type="image" src="button.png" alt="Image Button">
+<input type="month" value="2024-01">
+<input type="number" value="42">
+<input type="password" value="mypassword123">
+<input type="radio" name="choice" value="option1" checked>
+<input id="attributeValueRadio" type="radio" name="choice">
+<input type="range" value="50" min="0" max="100">
+<input type="reset" value="Reset Form">
+<input id="attributeValueSearch" type="search" value="search terms">
+<input type="submit" value="Submit Button">
+<input type="tel" value="123-456-7890">
+<input id="attributeValueText" type="text" value="Default text">
+<input type="time" value="13:30">
+<input type="url" value="https://www.example.com">
+<input type="week" value="2024-W03">
+<br>
+<script>
+  let textElement = document.getElementById("attributeValueText");
+  console.log(textElement.value);
+
+  let buttonElement = document.getElementById("attributeValueButton");
+  console.log(buttonElement.value);
+
+  let checkboxElement = document.getElementById("attributeValueCheckbox");
+  console.log(checkboxElement.value);
+
+  let radioElement = document.getElementById("attributeValueRadio");
+  console.log(radioElement.value);
+
+</script>
+
+<!-- 3.? `width` -->
 <!-- TODO:-->
 
 </body>
