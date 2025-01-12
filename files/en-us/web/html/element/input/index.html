@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<body>
+
+<!-- 1. create interactive controls | web-based forms !-->
+<!-- TODO: !-->
+
+<!-- 2. if type NOT specified -> `text`, by default !-->
+<input placeholder="DEFAULT type">
+
+</input> <!-- CLOSING tag is redundant-->
+
+
+<!-- 3. Attributes -->
+<!-- TODO:-->
+<!-- 3.? `checked` -->
+<br>
+<p>checked</p>
+<input type="radio" name="checked radio" value="yes" >
+<input type="radio" name="checked radio" value="no" checked>
+
+<input type="checkbox" name="checked checkbox" value="yes" >
+<input type="checkbox" name="checked checkbox" value="no" checked>
+
+<!-- ONLY checked input values -- will be -- submitted -->
+<form id="myForm">
+  <!-- Radio Button Group -->
+  <fieldset>
+    <legend>Select Size:</legend>
+    <input type="radio" name="size" value="small" checked>
+    <label>Small</label>
+
+    <input type="radio" name="size" value="medium">
+    <label>Medium</label>
+
+    <input type="radio" name="size" value="large">
+    <label>Large</label>
+  </fieldset>
+
+  <!-- Checkbox Group -->
+  <fieldset>
+    <legend>Select Toppings:</legend>
+    <input type="checkbox" name="toppings" value="cheese" checked>
+    <label>Cheese</label>
+
+    <input type="checkbox" name="toppings" value="pepperoni" checked>
+    <label>Pepperoni</label>
+
+    <input type="checkbox" name="toppings" value="mushrooms">
+    <label>Mushrooms</label>
+  </fieldset>
+
+  <button type="submit">Submit Order</button>
+</form>
+<script>
+  // Show what data gets submitted
+  document.getElementById('myForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent actual form submission
+
+    // Create FormData object from the form
+    const formData = new FormData(this);
+
+    // Show what data is being submitted
+    for (let pair of formData.entries()) {
+      console.log(pair[0] + ': ' + pair[1]);
+    }
+
+    // Output will be:
+    // size: small (because it's checked)
+    // toppings: cheese (because it's checked)
+    // toppings: pepperoni (because it's checked)
+    // Note: mushrooms won't appear because it's not checked
+  });
+</script>
+
+<!-- 3.? `dirname` -->
+<!-- TODO:-->
+
+</body>
+</html>

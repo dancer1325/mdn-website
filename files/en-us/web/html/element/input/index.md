@@ -17,12 +17,11 @@ browser-compat: html.elements.input
 
 {{EmbedInteractiveExample("pages/tabbed/input-text.html", "tabbed-shorter")}}
 
-## \<input> types
+## `<input type= >
 
 * ⚠️`<input>` works -- depend on the -- its [`type`](#type) attribute's value ⚠️
 * if `type` NOT specified -> `text` == default value 
-
-The available types are as follows:
+* AVAILABLE
 
 <table class="no-markdown">
   <colgroup>
@@ -318,20 +317,27 @@ The available types are as follows:
 
 ## Attributes
 
-The `<input>` element is so powerful because of its attributes; the [`type`](#type) attribute, described with examples above, being the most important. Since every `<input>` element, regardless of type, is based on the {{domxref("HTMLInputElement")}} interface, they technically share the exact same set of attributes. However, in reality, most attributes have an effect on only a specific subset of input types. In addition, the way some attributes impact an input depends on the input type, impacting different input types in different ways.
-
-This section provides a table listing all the attributes with a brief description. This table is followed by a list describing each attribute in greater detail, along with which input types they are associated with. Those that are common to most or all input types are defined in greater detail below. Attributes that are unique to particular input types—or attributes which are common to all input types but have special behaviors when used on a given input type—are instead documented on those types' pages.
-
-Attributes for the `<input>` element include the [global HTML attributes](/en-US/docs/Web/HTML/Global_attributes) and additionally:
+* empower `<input>`
+* [`type`](#input-type-) attribute
+  * MOST important
+* | ALL `<input>` types, 
+  * 👀technically SHARE the EXACT SAME set of attributes 👀
+    * Reason: 🧠ALL -- are based on the -- {{domxref("HTMLInputElement")}} interface 🧠
+  * ⚠️EACH attribute 
+    * -- has an -- effect | ONLY a SPECIFIC SUBSET of input types 
+    * -- has DIFFERENT -- impact | EACH input type ⚠️
+ 
+* ALL attributes / allowed for the `<input>`
+  * include ALSO [global HTML attributes](/en-US/docs/Web/HTML/Global_attributes)
 
 | Attribute                                     | Type or Types                                                           | Description                                                                           |
-| --------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+|-----------------------------------------------| ----------------------------------------------------------------------- |---------------------------------------------------------------------------------------|
 | [`accept`](#accept)                           | `file`                                                                  | Hint for expected file type in file upload controls                                   |
 | [`alt`](#alt)                                 | `image`                                                                 | alt attribute for the image type. Required for accessibility                          |
 | [`autocapitalize`](#autocapitalize)           | all except `url`, `email`, and `password`                               | Controls automatic capitalization in inputted text.                                   |
 | [`autocomplete`](#autocomplete)               | all except `checkbox`, `radio`, and buttons                             | Hint for form autofill feature                                                        |
 | [`capture`](#capture)                         | `file`                                                                  | Media capture input method in file upload controls                                    |
-| [`checked`](#checked)                         | `checkbox`, `radio`                                                     | Whether the command or control is checked                                             |
+| [`checked`](#checked)                         | `checkbox`, `radio`                                                     | == whether the command or control -- is -- checked                                    |
 | [`dirname`](#dirname)                         | `hidden`, `text`, `search`, `url`, `tel`, `email`                       | Name of form field to use for sending the element's directionality in form submission |
 | [`disabled`](#disabled)                       | all                                                                     | Whether the form control is disabled                                                  |
 | [`form`](#form)                               | all                                                                     | Associates the control with a form element                                            |
@@ -360,8 +366,6 @@ Attributes for the `<input>` element include the [global HTML attributes](/en-US
 | [`type`](#type)                               | all                                                                     | Type of form control                                                                  |
 | [`value`](#value)                             | all except `image`                                                      | The initial value of the control                                                      |
 | [`width`](#width)                             | `image`                                                                 | Same as `width` attribute for {{htmlelement('img')}}                                  |
-
-A few additional non-standard attributes are listed following the descriptions of the standard attributes.
 
 ### Individual attributes
 
@@ -401,13 +405,19 @@ A few additional non-standard attributes are listed following the descriptions o
 
 - `capture`
   - : Introduced in the HTML Media Capture specification and valid for the `file` input type only, the `capture` attribute defines which media—microphone, video, or camera—should be used to capture a new file for upload with `file` upload control in supporting scenarios. See the {{HTMLElement("input/file", "file")}} input type.
-- `checked`
-
-  - : Valid for both `radio` and `checkbox` types, `checked` is a Boolean attribute. If present on a `radio` type, it indicates that the radio button is the currently selected one in the group of same-named radio buttons. If present on a `checkbox` type, it indicates that the checkbox is checked by default (when the page loads). It does _not_ indicate whether this checkbox is currently checked: if the checkbox's state is changed, this content attribute does not reflect the change. (Only the [`HTMLInputElement`'s `checked` IDL attribute](/en-US/docs/Web/API/HTMLInputElement) is updated.)
-
-    > **Note:** Unlike other input controls, a checkboxes and radio buttons value are only included in the submitted data if they are currently `checked`. If they are, the name and the value(s) of the checked controls are submitted.
-    >
-    > For example, if a checkbox whose `name` is `fruit` has a `value` of `cherry`, and the checkbox is checked, the form data submitted will include `fruit=cherry`. If the checkbox isn't active, it isn't listed in the form data at all. The default `value` for checkboxes and radio buttons is `on`.
+* `checked`
+  * == Boolean attribute /
+    * ALLOWED, | types
+      * `radio`
+        * 👀if `true` == radio button is the CURRENTLY selected one | group of SAME-named radio buttons 👀 
+      * `checkbox`
+        * 👀if `true` == checkbox is checked by default | load the page 👀
+          * ⚠️!= checkbox is CURRENTLY checked (|Chrome does NOT happen)⚠️
+            * == if the checkbox's state is changed -> 
+              * `checked` attribute does NOT reflect the change 
+              * ONLY [`HTMLInputElement`'s `checked` IDL attribute](/en-US/docs/Web/API/HTMLInputElement) is updated
+  * uses
+    * 👀if input types are checked (== `checked=true`) -> 's values & 's name are included | submitted data 👀
 
 - `dirname`
 
@@ -617,9 +627,15 @@ A few additional non-standard attributes are listed following the descriptions o
 
     Permitted values are listed in [Input types](#input_types) above.
 
-- `value`
-
-  - : The input control's value. When specified in the HTML, this is the initial value, and from then on it can be altered or retrieved at any time using JavaScript to access the respective {{domxref("HTMLInputElement")}} object's `value` property. The `value` attribute is always optional, though should be considered mandatory for `checkbox`, `radio`, and `hidden`.
+* `value`
+  * == input control's value /
+    * | HTML, INITIAL value
+      * if AFTERWARD, you want to alter or retrieve -> use JavaScript -- via -- {{domxref("HTMLInputElement")}} object's `value` property
+  * by default,
+    * | checkboxes & radio buttons, `on`
+  * 👀OPTIONAL 👀
+    * recommendations
+      * | `checkbox`, `radio` and `hidden`; MANDATORY
 
 - `width`
 
