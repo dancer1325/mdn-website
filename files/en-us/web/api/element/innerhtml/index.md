@@ -8,22 +8,21 @@ browser-compat: api.Element.innerHTML
 
 {{APIRef("DOM")}}
 
-The {{domxref("Element")}} property
-**`innerHTML`** gets or sets the HTML or XML markup contained
-within the element.
-
-To insert the HTML into the document rather than replace the contents of an element,
-use the method {{domxref("Element.insertAdjacentHTML", "insertAdjacentHTML()")}}.
+* `innerHTML`
+  * == property / about the HTML or XML markup contained | element
+    * gets or
+    * sets / replaces
+      * != `insertAdjacentHTML()`
+        * Reason: 🧠 replace != insert 🧠
 
 ## Value
 
-A string containing the HTML serialization of the element's
-descendants. Setting the value of `innerHTML` removes all of the element's
-descendants and replaces them with nodes constructed by parsing the HTML given in the
-string _htmlString_.
+* 👀== string / HTML serialization of the element's descendants 👀
+  * == ALL element's descendants -- are replaced them with -- nodes / constructed by parsing this string to the HTML 
 
 ### Exceptions
 
+* TODO:
 - `SyntaxError` {{domxref("DOMException")}}
   - : Thrown if an attempt was made to set the value of `innerHTML` using a string which
     is not properly-formed HTML.
@@ -33,23 +32,19 @@ string _htmlString_.
 
 ## Usage notes
 
-The `innerHTML` property can be used to examine the current HTML source of the page, including any changes that have been made since the page was initially loaded.
+* examine the
+  * CURRENT HTML source of the page
+  * ANY changes / have been made since the page was INITIALLY loaded
 
 ### Reading the HTML contents of an element
 
-Reading `innerHTML` causes the user agent to serialize the HTML or XML fragment comprised of the element's descendants. The resulting string is returned.
-
-```js
-let contents = myElement.innerHTML;
-```
-
-This lets you look at the HTML markup of the element's content nodes.
-
-> **Note:** The returned HTML or XML fragment is generated based on the current contents of the element, so the markup and formatting of the returned fragment
-> is likely not to match the original page markup.
+* returned HTML or XML fragment -- is generated based on the -- CURRENT contents of the element
+  * -> returned (can be) != original markup
+* _Example:_ [index.html](index.html)
 
 ### Replacing the contents of an element
 
+* TODO:
 Setting the value of `innerHTML` lets you easily replace the existing contents of an element with new content.
 
 > **Note:** This is a [security risk](#security_considerations) if the string to be inserted might contain potentially malicious content.
