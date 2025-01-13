@@ -6,20 +6,25 @@ page-type: glossary-definition
 
 {{GlossarySidebar}}
 
-**SEO** (Search Engine Optimization) is the process of making a website more visible in search results, also termed improving search rankings.
+* **SEO** (Search Engine Optimization) 
+  * := process of making a website / MORE visible | search results
+  * == GENERAL guidelines + empirical knowledge + theoretical knowledge (from science papers or patents)
+  * 's methods classes
+    * Technical
+      * tag the content -- via -- semantic {{Glossary("HTML")}}
+      * | explore the website, crawlers -- should ONLY find the -- content / you want indexed
+    * Copywriting
+      * write content -- via -- your visitors' vocabulary (text + images)
+    * Popularity
+      * OTHER established sites -- link to -- your site
 
-Search engines {{Glossary("Crawler", "crawl")}} the web, following links from page to page, and index the content found. When you search, the search engine displays the indexed content. Crawlers follow rules. If you follow those rules closely when doing SEO for a website, you give the site the best chances of showing up among the first results, increasing traffic and possibly revenue (for e-commerce and ads).
-
-Search engines give some guidelines for SEO, but big search engines keep result ranking as a trade secret. SEO combines official search engine guidelines, empirical knowledge, and theoretical knowledge from science papers or patents.
-
-SEO methods fall into three broad classes:
-
-- Technical
-  - : Tag the content using semantic {{Glossary("HTML")}}. When exploring the website, crawlers should only find the content you want indexed.
-- Copywriting
-  - : Write content using your visitors' vocabulary. Use text as well as images so that crawlers can understand the subject.
-- Popularity
-  - : You get most traffic when other established sites link to your site.
+* Search engines 
+  * how does it work?
+    * {{Glossary("Crawler", "crawl")}} the web -- following -- links from page to page & CERTAIN rules
+      * if your website follows those rules -> ranked higher
+    * the content found is
+      * indexed
+      * displayed
 
 ## See also
 
