@@ -7,24 +7,40 @@ spec-urls: https://tc39.es/ecma262/multipage/control-abstraction-objects.html#se
 
 {{jsSidebar("More")}}
 
-**Iteration protocols** aren't new built-ins or syntax, but _protocols_. These protocols can be implemented by any object by following some conventions.
-
-There are two protocols: The [iterable protocol](#the_iterable_protocol) and the [iterator protocol](#the_iterator_protocol).
+* **Iteration protocols**
+  * != NEW built-ins or syntax
+  * == _protocols_ / can be implemented -- by -- ANY object / follows SOME conventions
+  * types
+    * [iterable protocol](#the-iterable-protocol)
+    * [iterator protocol](#the-iterator-protocol)
 
 ## The iterable protocol
 
-**The iterable protocol** allows JavaScript objects to define or customize their iteration behavior, such as what values are looped over in a {{jsxref("Statements/for...of", "for...of")}} construct. Some built-in types are [built-in iterables](#built-in_iterables) with a default iteration behavior, such as {{jsxref("Array")}} or {{jsxref("Map")}}, while other types (such as {{jsxref("Object")}}) are not.
+* allows
+  * JavaScript objects -- can -- define or customize their iteration behavior
+    * _Example:_ define values / are looped | {{jsxref("Statements/for...of", "for...of")}} construct
 
-In order to be **iterable**, an object must implement the **`@@iterator`** method, meaning that the object (or one of the objects up its [prototype chain](/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)) must have a property with a `@@iterator` key which is available via constant {{jsxref("Symbol.iterator")}}:
+* built-in types
+  * [built-in iterables](#built-in-iterables) / have default iteration behavior
+    * _Example:_ {{jsxref("Array")}} or {{jsxref("Map")}}
+  * NON iterables
+    * _Example:_ {{jsxref("Object")}}
 
-- `[Symbol.iterator]`
-  - : A zero-argument function that returns an object, conforming to the [iterator protocol](#the_iterator_protocol).
+* requirements to be **iterable** an object
+  * implement the **`@@iterator`** method
+    * == object (or one of the objects up its [prototype chain](/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)) -- MUST have a -- property / `@@iterator` key is available -- via -- constant {{jsxref("Symbol.iterator")}}
 
+* `[Symbol.iterator]`
+  * == zero-argument function / returns an object -- conforming to the -- [iterator protocol](#the-iterator-protocol)
+
+* TODO:
 Whenever an object needs to be iterated (such as at the beginning of a {{jsxref("Statements/for...of", "for...of")}} loop), its `@@iterator` method is called with no arguments, and the returned **iterator** is used to obtain the values to be iterated.
 
-Note that when this zero-argument function is called, it is invoked as a method on the iterable object. Therefore inside of the function, the `this` keyword can be used to access the properties of the iterable object, to decide what to provide during the iteration.
+Note that when this zero-argument function is called, it is invoked as a method on the iterable object. 
+Therefore inside of the function, the `this` keyword can be used to access the properties of the iterable object, to decide what to provide during the iteration.
 
-This function can be an ordinary function, or it can be a generator function, so that when invoked, an iterator object is returned. Inside of this generator function, each entry can be provided by using `yield`.
+This function can be an ordinary function, or it can be a generator function, so that when invoked, an iterator object is returned. 
+Inside of this generator function, each entry can be provided by using `yield`.
 
 ## The iterator protocol
 
