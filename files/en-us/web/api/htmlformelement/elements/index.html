@@ -1,0 +1,49 @@
+<form id="my-form">
+  <label>
+    Username:
+    <input type="text" name="username" />
+  </label>
+  <label>
+    Full name:
+    <input type="text" name="full-name" />
+  </label>
+  <label>
+    Password:
+    <input type="password" name="password" />
+  </label>
+  <label>
+    Button:
+    <button value="Initial button"> Click WITHOUT action</button>
+  </label>
+</form>
+
+<script>
+  // ways to access HTMLFormElement.elements
+  const inputs = document.getElementById("my-form").elements;
+  console.log(inputs.constructor.name);   // return `HTMLFormControlsCollection` because it's HTML v5+
+
+  // 1. access form control -- by -- index
+  const inputByIndex = inputs[0];
+  console.log(inputByIndex);
+
+  // 2. access form control -- by -- elementName
+  const inputByName = inputs["username"];
+  console.log(inputByName);
+
+  // ANY programmatic logic can be done
+  // 1. Iterate over the form controls
+  for (let i = 0; i < inputs.length; i++) {
+    console.log(inputs[i].nodeName);
+    if (inputs[i].nodeName === "BUTTON") {
+      console.log(inputs[i].value.toLocaleUpperCase());
+    }
+  }
+
+  // 2. Disable input form controls
+  for (let i = 0; i < inputs.length; i++) {
+    // disable ALL input form controls
+    if (inputs[i].nodeName === "INPUT") {
+      inputs[i].setAttribute("disabled", "");
+    }
+  }
+</script>
