@@ -98,9 +98,8 @@ browser-compat: html.elements.input
     <tr>
       <td>{{HTMLElement("input/email", "email")}}</td>
       <td>
-        A field for editing an email address. Looks like a
-        <code>text</code> input, but has validation parameters and relevant
-        keyboard in supporting browsers and devices with dynamic keyboards.
+        == field -- for editing an -- email address <br/>
+        == <code>text</code> input + validation parameters + keyboard in supporting browsers
       </td>
       <td id="exampleemail">
         <pre class="brush: html hidden">
@@ -331,7 +330,7 @@ browser-compat: html.elements.input
   * include ALSO [global HTML attributes](/en-US/docs/Web/HTML/Global_attributes)
 
 | Attribute                                     | Type or Types                                                           | Description                                                                           |
-|-----------------------------------------------| ----------------------------------------------------------------------- |---------------------------------------------------------------------------------------|
+|-----------------------------------------------|-------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | [`accept`](#accept)                           | `file`                                                                  | Hint for expected file type in file upload controls                                   |
 | [`alt`](#alt)                                 | `image`                                                                 | alt attribute for the image type. Required for accessibility                          |
 | [`autocapitalize`](#autocapitalize)           | all except `url`, `email`, and `password`                               | Controls automatic capitalization in inputted text.                                   |
@@ -359,7 +358,7 @@ browser-compat: html.elements.input
 | [`popovertarget`](#popovertarget)             | `button`                                                                | Designates an `<input type="button">` as a control for a popover element              |
 | [`popovertargetaction`](#popovertargetaction) | `button`                                                                | Specifies the action that a popover control should perform                            |
 | [`readonly`](#readonly)                       | all except `hidden`, `range`, `color`, `checkbox`, `radio`, and buttons | Boolean. The value is not editable                                                    |
-| [`required`](#required)                       | all except `hidden`, `range`, `color`, and buttons                      | Boolean. A value is required or must be checked for the form to be submittable        |
+| [`required`](#required)                       | ALL except `hidden`, `range`, `color`, and buttons                      | Boolean <br/> 👀if you want to submit the form -> value is required or checked 👀     |
 | [`size`](#size)                               | `text`, `search`, `url`, `tel`, `email`, `password`                     | Size of the control                                                                   |
 | [`src`](#src)                                 | `image`                                                                 | Same as `src` attribute for {{htmlelement('img')}}; address of image resource         |
 | [`step`](#step)                               | `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`    | Incremental values that are valid                                                     |
@@ -580,11 +579,12 @@ browser-compat: html.elements.input
 
     See the [HTML attribute: `readonly`](/en-US/docs/Web/HTML/Attributes/readonly) for more information.
 
-- `required`
-
-  - : `required` is a Boolean attribute which, if present, indicates that the user must specify a value for the input before the owning form can be submitted. The `required` attribute is supported by `text`, `search`, `url`, `tel`, `email`, `date`, `month`, `week`, `time`, `datetime-local`, `number`, `password`, `checkbox`, `radio`, and `file` inputs.
-
-    See [Client-side validation](#client-side_validation) and the [HTML attribute: `required`](/en-US/docs/Web/HTML/Attributes/required) for more information.
+* `required`
+  * == Boolean attribute /
+    * if present & you want to submit the form -> user MUST specify a value | input
+  * see
+    * [Client-side validation](#client-side-validation)
+    * [HTML attribute: `required`](/en-US/docs/Web/HTML/Attributes/required)
 
 - `size`
 
