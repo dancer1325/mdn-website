@@ -7,70 +7,29 @@ browser-compat: svg.attributes.presentation.fill
 
 {{SVGRef}}
 
-The **`fill`** attribute has two different meanings. For shapes and text it's a presentation attribute that defines the color (_or any SVG paint servers like gradients or patterns_) used to paint the element; for animation it defines the final state of the animation.
-
-You can use this attribute with the following SVG elements:
-
-- {{SVGElement('circle')}}
-- {{SVGElement('ellipse')}}
-- {{SVGElement('path')}}
-- {{SVGElement('polygon')}}
-- {{SVGElement('polyline')}}
-- {{SVGElement('rect')}}
-- {{SVGElement('text')}}
-- {{SVGElement('textPath')}}
-- {{SVGElement('tref')}}
-- {{SVGElement('tspan')}}
-
-For animation, these elements are using this attribute: {{SVGElement('animate')}}, {{SVGElement('animateMotion')}}, {{SVGElement('animateTransform')}}, and {{SVGElement('set')}}.
-
-## Example
-
-```css hidden
-html,
-body,
-svg {
-  height: 100%;
-}
-```
-
-```html
-<svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Simple color fill -->
-  <circle cx="50" cy="50" r="40" fill="pink" />
-
-  <!-- Fill circle with a gradient -->
-  <defs>
-    <radialGradient id="myGradient">
-      <stop offset="0%" stop-color="pink" />
-      <stop offset="100%" stop-color="black" />
-    </radialGradient>
-  </defs>
-
-  <circle cx="150" cy="50" r="40" fill="url(#myGradient)" />
-
-  <!--
-  Keeping the final state of an animated circle
-  which is a circle with a radius of 40.
-  -->
-  <circle cx="250" cy="50" r="20">
-    <animate
-      attributeType="XML"
-      attributeName="r"
-      from="0"
-      to="40"
-      dur="5s"
-      fill="freeze" />
-  </circle>
-</svg>
-```
-
-{{EmbedLiveSample("Example", '100%', 200)}}
+* **`fill`** attribute
+  * | shapes and text,
+    * == color (_or any SVG paint servers like gradients or patterns_) -- used to paint the -- element
+  * | animation,
+    * == final state of the animation
+  * VALID | the SVG elements
+    * {{SVGElement('circle')}}
+    * {{SVGElement('ellipse')}}
+    * {{SVGElement('path')}}
+    * {{SVGElement('polygon')}}
+    * {{SVGElement('polyline')}}
+    * {{SVGElement('rect')}}
+    * {{SVGElement('text')}}
+    * {{SVGElement('textPath')}}
+    * {{SVGElement('tref')}}
+    * {{SVGElement('tspan')}}
 
 ## animate
 
-For {{SVGElement('animate')}}, `fill` defines the final state of the animation.
+* | {{SVGElement('animate')}},
+  * `fill` == final state of the animation
 
+* TODO:
 <table class="properties">
   <tbody>
     <tr>
