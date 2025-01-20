@@ -1,0 +1,39 @@
+<form id="myForm">
+  <input type="text" name="username" value="john">
+  <input type="email" name="email" value="john@example.com">
+  <select name="country">
+    <option value="us">United States</option>
+    <option value="uk">United Kingdom</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  // Get the form element
+  const form = document.getElementById('myForm');
+
+  // Get the HTMLFormControlsCollection
+  const formControls = form.elements;
+  console.log(formControls.constructor.name);   // LOG the type of object
+
+  // You can access elements in multiple ways:
+
+  // 1. By index
+  console.log(formControls[0]); // first input element
+
+  // 2. By name
+  console.log(formControls['username']); // gets the username input
+  console.log(formControls.username); // alternative syntax
+
+  // 3. Get the number of form controls
+  console.log(formControls.length); // 4 (3 inputs + 1 button)
+
+  // 4. Using namedItem method
+  const emailInput = formControls.namedItem('email');
+  console.log(emailInput.value); // "john@example.com"
+
+  // 5. Iterate through all form controls
+  for (let control of formControls) {
+    console.log(control.name + ': ' + control.value);
+  }
+</script>

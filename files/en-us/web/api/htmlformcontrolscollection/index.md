@@ -7,22 +7,28 @@ browser-compat: api.HTMLFormControlsCollection
 
 {{APIRef("HTML DOM")}}
 
-The **`HTMLFormControlsCollection`** interface represents a _collection_ of HTML _form control elements_, returned by the {{domxref("HTMLFormElement")}} interface's {{domxref("HTMLFormElement.elements", "elements")}} property.
+* **`HTMLFormControlsCollection`**
+  * == interface / 👀-- represents a -- _collection_ of HTML _form control elements_ 👀
+  * uses
+    * -- returned by the -- {{domxref("HTMLFormElement")}} interface's {{domxref("HTMLFormElement.elements", "elements")}} property
+    * replaces one {{domxref("HTMLCollection")}}'s method
+  * child of {{domxref("HTMLCollection")}}
 
-This interface replaces one method from {{domxref("HTMLCollection")}}, on which it is based.
-
+* TODO: Where to find it?
 {{InheritanceDiagram}}
 
 ## Instance properties
 
-_This interface inherits the properties of its parent, {{domxref("HTMLCollection")}}._
+* == {{domxref("HTMLCollection")}}'s properties 
 
 ## Instance methods
 
-_This interface inherits the methods of its parent, {{domxref("HTMLCollection")}}._
-
-- {{domxref("HTMLFormControlsCollection.namedItem()")}}
-  - : Returns the {{domxref("RadioNodeList")}} or the {{domxref("Element")}} in the collection whose `name` or `id` matches the specified name, or `null` if no nodes match. Note that this version of `namedItem()` hides the one inherited from {{domxref("HTMLCollection")}}. Like that method, using the JavaScript array bracket syntax with a {{jsxref("String")}}, as in `collection["value"]`, is equivalent to `collection.namedItem("value")`.
+* == {{domxref("HTMLCollection")}}'s methods
+* {{domxref("HTMLFormControlsCollection.namedItem()")}}
+  * TODO:
+    - : Returns the {{domxref("RadioNodeList")}} or the {{domxref("Element")}} in the collection whose `name` or `id` matches the specified name, or `null` if no nodes match.
+        - Note that this version of `namedItem()` hides the one inherited from {{domxref("HTMLCollection")}}.
+        - Like that method, using the JavaScript array bracket syntax with a {{jsxref("String")}}, as in `collection["value"]`, is equivalent to `collection.namedItem("value")`.
 
 ## Specifications
 
