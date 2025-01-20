@@ -17,18 +17,19 @@ browser-compat: html.elements.form
 
 ## Attributes
 
-This element includes the [global attributes](/en-US/docs/Web/HTML/Global_attributes).
-
-- `accept` {{deprecated_inline}}
-
-  - : Comma-separated [content types](/en-US/docs/Web/SVG/Content_type) the server accepts.
-
-    > **Note:** **This attribute has been deprecated and should not be used.** Instead, use the [`accept`](/en-US/docs/Web/HTML/Element/input#accept) attribute on `<input type=file>` elements.
-
-- `accept-charset`
-
-  - : Space-separated {{Glossary("character encoding", "character encodings")}} the server accepts. The browser uses them in the order in which they are listed. The default value means [the same encoding as the page](/en-US/docs/Web/HTTP/Headers/Content-Encoding).
-    (In previous versions of HTML, character encodings could also be delimited by commas.)
+* allowed
+  * ALL [global attributes](/en-US/docs/Web/HTML/Global_attributes)
+  * `accept` {{deprecated_inline}}
+    * == Comma-separated [content types](/en-US/docs/Web/SVG/Content_type) / server accepts
+    * deprecated ->
+      * ❌ NOT recommended to use ❌and should not be used
+      * use, instead, [input's `accept` attribute ](/en-US/docs/Web/HTML/Element/input#accept) 
+        * == `<input accept>` 
+  * `accept-charset`
+    * TODO: : Space-separated {{Glossary("character encoding", "character encodings")}} the server accepts. 
+    * The browser uses them in the order in which they are listed. 
+    * The default value means [the same encoding as the page](/en-US/docs/Web/HTTP/Headers/Content-Encoding).
+    * (In previous versions of HTML, character encodings could also be delimited by commas.)
 
 - `autocapitalize`
 
@@ -48,67 +49,75 @@ This element includes the [global attributes](/en-US/docs/Web/HTML/Global_attrib
 - `rel`
   - : Controls the annotations and what kinds of links the form creates. Annotations include [`external`](/en-US/docs/Web/HTML/Attributes/rel#external), [`nofollow`](/en-US/docs/Web/HTML/Attributes/rel#nofollow), [`opener`](/en-US/docs/Web/HTML/Attributes/rel#opener), [`noopener`](/en-US/docs/Web/HTML/Attributes/rel#noopener), and [`noreferrer`](/en-US/docs/Web/HTML/Attributes/rel#noreferrer). Link types include [`help`](/en-US/docs/Web/HTML/Attributes/rel#help), [`prev`](/en-US/docs/Web/HTML/Attributes/rel#prev), [`next`](/en-US/docs/Web/HTML/Attributes/rel#next), [`search`](/en-US/docs/Web/HTML/Attributes/rel#search), and [`license`](/en-US/docs/Web/HTML/Attributes/rel#license). The [`rel`](/en-US/docs/Web/HTML/Attributes/rel) value is a space-separated list of these enumerated values.
 
-### Attributes for form submission
+### Attributes -- for -- form submission
 
-The following attributes control behavior during form submission.
+* == attributes / control behavior | form submission
 
-- `action`
-  - : The URL that processes the form submission. This value can be overridden by a [`formaction`](/en-US/docs/Web/HTML/Element/button#formaction) attribute on a {{HTMLElement("button")}}, [`<input type="submit">`](/en-US/docs/Web/HTML/Element/input/submit), or [`<input type="image">`](/en-US/docs/Web/HTML/Element/input/image) element. This attribute is ignored when `method="dialog"` is set.
-- `enctype`
+* `action`
+  * == 👀URL / processes the form submission 👀
+  * ways to overridden it
+    * [button's `formaction` attribute](/en-US/docs/Web/HTML/Element/button#formaction)
+    * [`<input type="submit">`](/en-US/docs/Web/HTML/Element/input/submit),
+    * [`<input type="image">`](/en-US/docs/Web/HTML/Element/input/image)
+  * 👀if `method="dialog"` -> this attribute is ignored 👀 
+* `enctype`
+  * if `method=post` -> `enctype` == form submission's [MIME type](https://en.wikipedia.org/wiki/Mime_type) 
+  * POSSIBLE values
+    * `application/x-www-form-urlencoded`
+      * default value
+    * `multipart/form-data`
+      * use cases
+        * form contains {{HTMLElement("input")}} elements / `type=file`
+    * `text/plain`
+      * uses
+        * debugging purposes
+  * ways to overridden it
+    * [button's `formenctype` attribute](/en-US/docs/Web/HTML/Element/button#formenctype),
+    * [`<input type="submit">`](/en-US/docs/Web/HTML/Element/input/submit), 
+    * [`<input type="image">`](/en-US/docs/Web/HTML/Element/input/image)
+* `method`
+  * == [HTTP](/en-US/docs/Web/HTTP) method / submit the form with
+  * ALLOWED methods/values (⚠️case insensitive⚠️)
+    * `post`
+      * form data -- sent as the -- [request body](/en-US/docs/Web/API/Request/body)
+    * `get`
+      * default
+      * form data -- appended, separated by `?`, to the -- `action` URL  
+      * uses
+        * form [has NO side effects](/en-US/docs/Glossary/Idempotent)
+    * `dialog`
+      * if form is | {{HTMLElement("dialog")}}, 
+        * closes the dialog
+        * | submit the form, 
+          * fire a `submit` event / NO submit data or clear the form
+  * ways to overridden it
+    * [button's `formmethod` attribute](/en-US/docs/Web/HTML/Element/button#formmethod),
+    * [`<input type="submit">`](/en-US/docs/Web/HTML/Element/input/submit),
+    * [`<input type="image">`](/en-US/docs/Web/HTML/Element/input/image)
+* `novalidate`
+  * == Boolean attribute / form should NOT be validated | submitted
+    * by default, `false` == form **_is_** validated
+  * ways to overridden it
+    * [button's `formnovalidate` attribute](/en-US/docs/Web/HTML/Element/button#formnovalidate),
+    * [`<input type="submit">`](/en-US/docs/Web/HTML/Element/input/submit),
+    * [`<input type="image">`](/en-US/docs/Web/HTML/Element/input/image)
+* `target`
+  * TODO:
 
-  - : If the value of the `method` attribute is `post`, `enctype` is the [MIME type](https://en.wikipedia.org/wiki/Mime_type) of the form submission. Possible values:
+    - : Indicates where to display the response after submitting the form. It is a name/keyword for a _browsing context_ (for example, tab, window, or iframe). The following keywords have special meanings:
 
-    - `application/x-www-form-urlencoded`: The default value.
-    - `multipart/form-data`: Use this if the form contains {{HTMLElement("input")}} elements with `type=file`.
-    - `text/plain`: Useful for debugging purposes.
+      - `_self` (default): Load into the same browsing context as the current one.
+      - `_blank`: Load into a new unnamed browsing context. This provides the same behavior as setting [`rel="noopener"`](#rel) which does not set [`window.opener`](/en-US/docs/Web/API/Window/opener).
+      - `_parent`: Load into the parent browsing context of the current one. If no parent, behaves the same as `_self`.
+      - `_top`: Load into the top-level browsing context (i.e., the browsing context that is an ancestor of the current one and has no parent). If no parent, behaves the same as `_self`.
 
-    This value can be overridden by [`formenctype`](/en-US/docs/Web/HTML/Element/button#formenctype) attributes on {{HTMLElement("button")}}, [`<input type="submit">`](/en-US/docs/Web/HTML/Element/input/submit), or [`<input type="image">`](/en-US/docs/Web/HTML/Element/input/image) elements.
-
-- `method`
-
-  - : The [HTTP](/en-US/docs/Web/HTTP) method to submit the form with.
-    The only allowed methods/values are (case insensitive):
-
-    - `post`: The {{HTTPMethod("POST")}} method; form data sent as the [request body](/en-US/docs/Web/API/Request/body).
-    - `get` (default): The {{HTTPMethod("GET")}}; form data appended to the `action` URL with a `?` separator. Use this method when the form [has no side effects](/en-US/docs/Glossary/Idempotent).
-    - `dialog`: When the form is inside a {{HTMLElement("dialog")}}, closes the dialog and causes a `submit` event to be fired on submission, without submitting data or clearing the form.
-
-    This value is overridden by [`formmethod`](/en-US/docs/Web/HTML/Element/button#formmethod) attributes on {{HTMLElement("button")}}, [`<input type="submit">`](/en-US/docs/Web/HTML/Element/input/submit), or [`<input type="image">`](/en-US/docs/Web/HTML/Element/input/image) elements.
-
-- `novalidate`
-  - : This Boolean attribute indicates that the form shouldn't be validated when submitted. If this attribute is not set (and therefore the form **_is_** validated), it can be overridden by a [`formnovalidate`](/en-US/docs/Web/HTML/Element/button#formnovalidate) attribute on a {{HTMLElement("button")}}, [`<input type="submit">`](/en-US/docs/Web/HTML/Element/input/submit), or [`<input type="image">`](/en-US/docs/Web/HTML/Element/input/image) element belonging to the form.
-- `target`
-
-  - : Indicates where to display the response after submitting the form. It is a name/keyword for a _browsing context_ (for example, tab, window, or iframe). The following keywords have special meanings:
-
-    - `_self` (default): Load into the same browsing context as the current one.
-    - `_blank`: Load into a new unnamed browsing context. This provides the same behavior as setting [`rel="noopener"`](#rel) which does not set [`window.opener`](/en-US/docs/Web/API/Window/opener).
-    - `_parent`: Load into the parent browsing context of the current one. If no parent, behaves the same as `_self`.
-    - `_top`: Load into the top-level browsing context (i.e., the browsing context that is an ancestor of the current one and has no parent). If no parent, behaves the same as `_self`.
-
-    This value can be overridden by a [`formtarget`](/en-US/docs/Web/HTML/Element/button#formtarget) attribute on a {{HTMLElement("button")}}, [`<input type="submit">`](/en-US/docs/Web/HTML/Element/input/submit), or [`<input type="image">`](/en-US/docs/Web/HTML/Element/input/image) element.
+      This value can be overridden by a [`formtarget`](/en-US/docs/Web/HTML/Element/button#formtarget) attribute on a {{HTMLElement("button")}}, [`<input type="submit">`](/en-US/docs/Web/HTML/Element/input/submit), or [`<input type="image">`](/en-US/docs/Web/HTML/Element/input/image) element.
 
 ## Examples
 
+* [mdn interactive examples](https://github.com/dancer1325/mdn-interactive-examples/tree/main/live-examples/html-examples/forms)
+
 ```html
-<!-- Form which will send a GET request to the current URL -->
-<form method="get">
-  <label>
-    Name:
-    <input name="submitted-name" autocomplete="name" />
-  </label>
-  <button>Save</button>
-</form>
-
-<!-- Form which will send a POST request to the current URL -->
-<form method="post">
-  <label>
-    Name:
-    <input name="submitted-name" autocomplete="name" />
-  </label>
-  <button>Save</button>
-</form>
-
 <!-- Form with fieldset, legend, and label -->
 <form method="post">
   <fieldset>
@@ -118,10 +127,6 @@ The following attributes control behavior during form submission.
   </fieldset>
 </form>
 ```
-
-### Result
-
-{{EmbedLiveSample('Examples')}}
 
 ## Technical summary
 
