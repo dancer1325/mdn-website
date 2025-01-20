@@ -1044,19 +1044,24 @@ Not only is the placeholder not accessible to screen readers, but once the user 
 
 ### Client-side validation
 
-> **Warning:** Client-side validation is useful, but it does _not_ guarantee that the server will receive valid data. If the data must be in a specific format, _always_ verify it also on the server-side, and return a [`400` HTTP response](/en-US/docs/Web/HTTP/Status/400) if the format is invalid.
+* ❌!= guarantee that server -- will receive -- valid data ❌
+* recommendations
+  * if the data requires a specific format ->
+    * ALWAYS verify it ALSO | server-side
+    * if the format is invalid -> return a [`400` HTTP response](/en-US/docs/Web/HTTP/Status/400) 
 
-In addition to using CSS to style inputs based on the {{cssxref(":valid")}} or {{cssxref(":invalid")}} UI states based on the current state of each input, as noted in the [UI pseudo-classes](#ui_pseudo-classes) section above, the browser provides for client-side validation on (attempted) form submission. On form submission, if there is a form control that fails constraint validation, supporting browsers will display an error message on the first invalid form control; displaying a default message based on the error type, or a message set by you.
+* use cases
+  * client-side validation | form submission 
+    * ALTERNATIVE 
+      * style inputs -- based on the -- 
+        * {{cssxref(":valid")}} or
+        * {{cssxref(":invalid")}} 
+    * if a form control fails constraint validation(S) -> supporting browsers will display an error messageS | FIRST INVALID form control
 
-Some input types and other attributes place limits on what values are valid for a given input. For example, `<input type="number" min="2" max="10" step="2">` means only the number 2, 4, 6, 8, or 10 are valid. Several errors could occur, including a `rangeUnderflow` error if the value is less than 2, `rangeOverflow` if greater than 10, `stepMismatch` if the value is a number between 2 and 10, but not an even integer (does not match the requirements of the `step` attribute), or `typeMismatch` if the value is not a number.
+* input type's domain is periodic -> [`max`](#max) & [`min`](#min) properties are reversed
+  * _Example:_ dates or times
 
-For the input types whose domain of possible values is periodic (that is, at the highest possible value, the values wrap back around to the beginning rather than ending), it's possible for the values of the [`max`](#max) and [`min`](#min) properties to be reversed, which indicates that the range of permitted values starts at `min`, wraps around to the lowest possible value, then continues on until `max` is reached. This is particularly useful for dates and times, such as when you want to allow the range to be from 8 PM to 8 AM:
-
-```html
-<input type="time" min="20:00" max="08:00" name="overnight" />
-```
-
-Specific attributes and their values can lead to a specific error {{domxref('ValidityState')}}:
+* SPECIFIC error {{domxref('ValidityState')}} / SPECIFIC attributes & ' values 
 
 <table class="no-markdown">
   <caption>
@@ -1075,43 +1080,42 @@ Specific attributes and their values can lead to a specific error {{domxref('Val
       <td><a href="#max"><code>max</code></a></td>
       <td>{{domxref('validityState.rangeOverflow')}}</td>
       <td>
-        Occurs when the value is greater than the maximum value as defined by
-        the <code>max</code> attribute
+        value > <code>max</code> attribute's value
       </td>
     </tr>
     <tr>
       <td><a href="#maxlength"><code>maxlength</code></a></td>
       <td>{{domxref('validityState.tooLong')}}</td>
       <td>
-        Occurs when the number of characters is greater than the number allowed by the <code>maxlength</code> property
+        number of characters > <code>maxlength</code> property's value
       </td>
     </tr>
     <tr>
       <td><a href="#min"><code>min</code></a></td>
       <td>{{domxref('validityState.rangeUnderflow')}}</td>
       <td>
-        Occurs when the value is less than the minimum value as defined by the <code>min</code> attribute
+        value < <code>min</code> attribute's value
       </td>
     </tr>
     <tr>
       <td><a href="#minlength"><code>minlength</code></a></td>
       <td>{{domxref('validityState.tooShort')}}</td>
       <td>
-        Occurs when the number of characters is less than the number required by the <code>minlength</code> property
+        number of characters < <code>minlength</code> property's value
       </td>
     </tr>
     <tr>
       <td><a href="#pattern"><code>pattern</code></a></td>
       <td>{{domxref('validityState.patternMismatch')}}</td>
       <td>
-        Occurs when a pattern attribute is included with a valid regular expression and the <code>value</code> does not match it.
+        if pattern attribute's regular expression -- does NOT match with -- <code>value</code> 
       </td>
     </tr>
     <tr>
       <td><a href="#required"><code>required</code></a></td>
       <td>{{domxref('validityState.valueMissing')}}</td>
       <td>
-        Occurs when the <code>required</code> attribute is present but the value is <code>null</code> or radio or checkbox is not checked.
+        if <code>required</code> is present & value is <code>null</code> or radio or checkbox is NOT checked
       </td>
     </tr>
     <tr>
@@ -1132,11 +1136,15 @@ Specific attributes and their values can lead to a specific error {{domxref('Val
   </tbody>
 </table>
 
-If a form control doesn't have the `required` attribute, no value, or an empty string, is not invalid. Even if the above attributes are present, with the exception of `required`, an empty string will not lead to an error.
+* if a form control 
+  * 👀does NOT have the `required` attribute & NO value or an empty string -> valid 👀 
+  * 👀have present ALL ABOVE attributes EXCEPT of `required` & empty string -> valid 👀
 
+* TODO:
 We can set limits on what values we accept, and supporting browsers will natively validate these form values and alert the user if there is a mistake when the form is submitted.
 
-In addition to the errors described in the table above, the `validityState` interface contains the `badInput`, `valid`, and `customError` boolean readonly properties. The validity object includes:
+In addition to the errors described in the table above, the `validityState` interface contains the `badInput`, `valid`, and `customError` boolean readonly properties. 
+The validity object includes:
 
 - {{domxref('validityState.valueMissing')}}
 - {{domxref('validityState.typeMismatch')}}
@@ -1152,7 +1160,8 @@ In addition to the errors described in the table above, the `validityState` inte
 
 For each of these Boolean properties, a value of `true` indicates that the specified reason validation may have failed is true, with the exception of the `valid` property, which is `true` if the element's value obeys all constraints.
 
-If there is an error, supporting browsers will both alert the user and prevent the form from being submitted. A word of caution: if a custom error is set to a truthy value (anything other than the empty string or `null`), the form will be prevented from being submitted. If there is no custom error message, and none of the other properties return true, `valid` will be true, and the form can be submitted.
+If there is an error, supporting browsers will both alert the user and prevent the form from being submitted.
+A word of caution: if a custom error is set to a truthy value (anything other than the empty string or `null`), the form will be prevented from being submitted. If there is no custom error message, and none of the other properties return true, `valid` will be true, and the form can be submitted.
 
 ```js
 function validate(input) {

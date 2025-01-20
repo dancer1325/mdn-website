@@ -122,5 +122,23 @@
 <!-- 3.? `width` -->
 <!-- TODO:-->
 
+
+<!-- client-side validation -->
+<input type="time" min="20:00" max="08:00" name="overnight" />
+
+<!-- SEVERAL errors could occur            enter 1  -->
+<form id="formWithSeveralErrors">
+  <input
+    type="number"
+    id="myInput"
+    min="2"
+    max="10"
+    step="2"
+    required
+  >
+  <button type="submit">Submit</button>
+</form>
+
+
 </body>
 </html>
