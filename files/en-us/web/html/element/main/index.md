@@ -7,11 +7,10 @@ browser-compat: html.elements.main
 
 {{HTMLSidebar}}
 
-The **`<main>`** [HTML](/en-US/docs/Web/HTML) element represents the dominant content of the {{HTMLElement("body")}} of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
-
-{{EmbedInteractiveExample("pages/tabbed/main.html","tabbed-shorter")}}
-
-A document mustn't have more than one `<main>` element that doesn't have the [`hidden`](/en-US/docs/Web/HTML/Global_attributes#hidden) attribute specified.
+* **`<main>`** [HTML](/en-US/docs/Web/HTML) element 
+  * == document's {{HTMLElement("body")}} / ⚠️is the MAIN one ⚠️
+  * rules
+    * 👀1! `<main>` / WITHOUT [`hidden`](/en-US/docs/Web/HTML/Global_attributes#hidden) attribute specified 👀
 
 <table class="properties">
   <tbody>
@@ -76,56 +75,43 @@ A document mustn't have more than one `<main>` element that doesn't have the [`h
 
 ## Attributes
 
-This element only includes the [global attributes](/en-US/docs/Web/HTML/Global_attributes).
+* == [global attributes](/en-US/docs/Web/HTML/Global_attributes)
 
 ## Usage notes
 
-The content of a `<main>` element should be unique to the document. Content that is repeated across a set of documents or document sections such as sidebars, navigation links, copyright information, site logos, and search forms shouldn't be included unless the search form is the main function of the page.
-
-`<main>` doesn't contribute to the document's outline; that is, unlike elements such as {{HTMLElement("body")}}, headings such as {{HTMLElement("Heading_Elements", "h2")}}, and such, `<main>` doesn't affect the {{glossary("DOM", "DOM's")}} concept of the structure of the page. It's strictly informative.
+* `<main>`
+  * 's content
+    * should be UNIQUE | document
+      * -> ❌NOT place inside here ❌
+        * Site navigation
+        * Copyright information
+        * Site logos
+        * Search bars
+        * Sidebars
+        * Headers/footers
+  * ❌does NOT contribute to the document's outline ❌ 
+    * == ❌NOT affect the {{glossary("DOM", "DOM's")}} structure of the page ❌
+    * == it's informative
+    * [online w3g checker](https://validator.w3.org/)
 
 ## Examples
 
-```html
-<!-- other content -->
-
-<main>
-  <h1>Apples</h1>
-  <p>The apple is the pomaceous fruit of the apple tree.</p>
-
-  <article>
-    <h2>Red Delicious</h2>
-    <p>
-      These bright red apples are the most common found in many supermarkets.
-    </p>
-    <p>…</p>
-    <p>…</p>
-  </article>
-
-  <article>
-    <h2>Granny Smith</h2>
-    <p>These juicy, green apples make a great filling for apple pies.</p>
-    <p>…</p>
-    <p>…</p>
-  </article>
-</main>
-
-<!-- other content -->
-```
-
-### Result
-
-{{EmbedLiveSample('Examples')}}
+* {{EmbedInteractiveExample("pages/tabbed/main.html","tabbed-shorter")}}
+* [index.html](index.html)
 
 ## Accessibility concerns
 
 ### Landmark
 
-The `<main>` element behaves like a [`main` landmark](/en-US/docs/Web/Accessibility/ARIA/Roles/main_role) role. [Landmarks](/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#landmark_roles) can be used by assistive technology to quickly identify and navigate to large sections of the document. Prefer using the `<main>` element over declaring `role="main"`, unless there are [legacy browser support concerns](#browser_compatibility).
+* 's behaviour == [`main` landmark](/en-US/docs/Web/Accessibility/ARIA/Roles/main_role) role
+  * TODO:
+[Landmarks](/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#landmark_roles) can be used by assistive technology to quickly identify and navigate to large sections of the document.
+Prefer using the `<main>` element over declaring `role="main"`, unless there are [legacy browser support concerns](#browser_compatibility).
 
 ### Skip navigation
 
-Skip navigation, also known as "skipnav", is a technique that allows an assistive technology user to quickly bypass large sections of repeated content (main navigation, info banners, etc.). This lets the user access the main content of the page faster.
+Skip navigation, also known as "skipnav", is a technique that allows an assistive technology user to quickly bypass large sections of repeated content (main navigation, info banners, etc.).
+This lets the user access the main content of the page faster.
 
 Adding an [`id`](/en-US/docs/Web/HTML/Global_attributes#id) attribute to the `<main>` element lets it be a target of a skip navigation link.
 
