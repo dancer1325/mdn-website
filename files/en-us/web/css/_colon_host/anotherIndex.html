@@ -1,0 +1,32 @@
+<!-- :host      | built-in HTML elements, has ❌ NO effect ❌ -->
+<style>
+  :host {
+    font-weight: bold;
+  }
+
+  div {
+    /* Regular styling works fine */
+    color: blue;
+  }
+</style>
+<div>Regular div</div>
+
+<!-- :host      | custom HTML elements, it works -->
+<script>
+  class MyElement extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+      this.shadowRoot.innerHTML = `
+        <style>
+          :host {
+            font-weight: bold;
+          }
+        </style>
+        <div>Custom element content</div>
+      `;
+    }
+  }
+  customElements.define('my-element', MyElement);
+</script>
+<my-element></my-element>

@@ -1,0 +1,29 @@
+<!-- context-span     custom HTML element  -->
+<h1>
+  Host selectors <a href="#"><context-span>example</context-span></a>
+</h1>
+
+<script>
+  // create "style" & "span" elements
+  const style = document.createElement("style");
+  const span = document.createElement("span");
+
+  // "span"   -- is filled with the --   custom element's content
+  span.textContent = this.textContent;
+
+  // TODO: Where can I see this reflected?
+  const shadowRoot = this.attachShadow({ mode: "open" });
+  shadowRoot.appendChild(style);
+  shadowRoot.appendChild(span);
+
+  // "style"  -- is filled with -- SOME CSS rules
+  style.textContent =
+    "span:hover { text-decoration: underline; }" +
+    // TODO: How to check the effect of the next style rules?
+    ":host-context(h1) { font-style: italic; }" +
+    ':host-context(h1):after { content: " - no links in headers!" }' +
+    ":host-context(article, aside) { color: gray; }" +
+    ":host(.footer) { color : red; }" +
+    ":host { background: rgb(0 0 0 / 10%); padding: 2px 5px; }";
+    // background     ==  ALL instances of the `<context-span>` element
+</script>
