@@ -1,0 +1,7 @@
+/* use the custom property / declared | ANOTHER file */
+body {
+  /*  set -- via -- custom-property (--main-bg-color)  */
+  background-color: var(--main-bg-color);
+}
+
+

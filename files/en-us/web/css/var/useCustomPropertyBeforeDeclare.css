@@ -1,0 +1,11 @@
+/* use the custom property | BEFORE declaring it*/
+body {
+  /*  set -- via -- custom-property (--main-bg-color)  */
+  background-color: var(--main-bg-color);
+}
+
+:root {
+  --main-bg-color: pink;
+}
+
+

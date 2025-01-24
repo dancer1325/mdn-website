@@ -1,0 +1,8 @@
+:root {
+  --main-bg-color: pink;
+}
+
+body {
+  /*  set -- via -- custom-property (--main-bg-color)  */
+  background-color: var(--main-bg-color);
+}

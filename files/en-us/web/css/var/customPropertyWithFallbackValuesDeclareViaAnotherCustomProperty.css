@@ -1,0 +1,8 @@
+:root {
+  --backup-bg-color: blue;
+}
+
+body {
+  /*  set -- via -- custom-property (--main-bg-color) / NOT defined  */
+  background-color: var(--main-bg-color, var(--backup-bg-color));
+}
