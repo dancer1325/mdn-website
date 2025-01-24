@@ -7,15 +7,13 @@ browser-compat: css.selectors.root
 
 {{CSSRef}}
 
-The **`:root`** [CSS](/en-US/docs/Web/CSS) [pseudo-class](/en-US/docs/Web/CSS/Pseudo-classes) matches the root element of a tree representing the document. In HTML, `:root` represents the {{HTMLElement("html")}} element and is identical to the selector `html`, except that its [specificity](/en-US/docs/Web/CSS/Specificity) is higher.
-
-```css
-/* Selects the root element of the document:
-   <html> in the case of HTML */
-:root {
-  background: yellow;
-}
-```
+* **`:root`**
+  * | CSS
+    * == [CSS](/en-US/docs/Web/CSS) [pseudo-class](/en-US/docs/Web/CSS/Pseudo-classes) / -- matches the -- tree's root element -- of the -- document
+    * uses
+      * declaring global [CSS variables](/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+  * | HTML,
+    * == {{HTMLElement("html")}} element / -- identical to the -- selector `html` EXCEPT that its [specificity](/en-US/docs/Web/CSS/Specificity) is higher (TODO: ❓)
 
 ## Syntax
 
@@ -27,16 +25,7 @@ The **`:root`** [CSS](/en-US/docs/Web/CSS) [pseudo-class](/en-US/docs/Web/CSS/Ps
 
 ## Examples
 
-### Declaring global CSS variables
-
-`:root` can be useful for declaring global [CSS variables](/en-US/docs/Web/CSS/Using_CSS_custom_properties):
-
-```css
-:root {
-  --main-color: hotpink;
-  --pane-padding: 5px 42px;
-}
-```
+* [index.html](index.html)
 
 ## Specifications
 
