@@ -7,15 +7,23 @@ spec-urls: https://drafts.csswg.org/css-syntax
 
 {{CSSRef}}
 
-The **CSS syntax** module describes, in general terms, the structure and syntax of cascading stylesheets, or CSS. It defines CSS as the language for describing the rendering of structured documents (such as HTML and XML), on the web and elsewhere.
-
-This module doesn't define any properties, [data types](/en-US/docs/Web/CSS/CSS_Types), [functions](/en-US/docs/Web/CSS/CSS_Functions), or [at-rules](/en-US/docs/Web/CSS/At-rule). Rather, it elaborates on how all of these features should be defined and how user agents should parse CSS.
+* **CSS syntax** module
+  * == CSS' 
+    * structure
+    * syntax
+  * ❌NOT define
+    * properties,
+    * [data types](/en-US/docs/Web/CSS/CSS_Types),
+    * [functions](/en-US/docs/Web/CSS/CSS_Functions),
+    * [at-rules](/en-US/docs/Web/CSS/At-rule) ❌ 
 
 ## At-rules
 
-- none
-
-> **Note:** The module explicitly states that {{cssxref("@charset")}} is not an actual at-rule, but rather an unrecognized legacy rule that should be omitted when a stylesheet is grammar-checked.
+* 👀NONE 👀
+  * {{cssxref("@charset")}}
+    * ❌!= at-rule❌
+    * == unrecognized legacy rule /
+      * if stylesheet is grammar-checked -> should be omitted  
 
 ## Reference
 
@@ -39,13 +47,11 @@ This module doesn't define any properties, [data types](/en-US/docs/Web/CSS/CSS_
 
 ## Guides
 
-- [Syntax](/en-US/docs/Web/CSS/Syntax)
+* [Syntax](/en-US/docs/Web/CSS/Syntax)
+* [Value definition syntax](/en-US/docs/Web/CSS/Value_definition_syntax)
+  * TODO:
 
-  - : Overview of CSS syntax, including CSS declarations, declaration blocks, rulesets, and statements.
-
-- [Value definition syntax](/en-US/docs/Web/CSS/Value_definition_syntax)
-
-  - : Explains the formal grammar for defining valid values for CSS properties and functions, along with semantic constraints. A guide for understanding CSS component value types, combinators, and multipliers.
+    - : Explains the formal grammar for defining valid values for CSS properties and functions, along with semantic constraints. A guide for understanding CSS component value types, combinators, and multipliers.
 
 - [CSS syntax error handling](/en-US/docs/Web/CSS/CSS_syntax/Error_handling)
 
