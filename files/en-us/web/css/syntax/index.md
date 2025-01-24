@@ -6,7 +6,16 @@ page-type: guide
 
 {{CSSRef}}
 
-The basic goal of the Cascading Stylesheet ([CSS](/en-US/docs/Web/CSS)) language is to allow a browser engine to paint elements of the page with specific features, like colors, positioning, or decorations. The _CSS syntax_ reflects this goal and its basic building blocks are:
+* goal
+  * overview of CSS syntax
+    * CSS declarations,
+    * declaration blocks,
+    * rulesets,
+    * statements
+
+* TODO:
+The basic goal of the Cascading Stylesheet ([CSS](/en-US/docs/Web/CSS)) language is to allow a browser engine to paint elements of the page with specific features, like colors, positioning, or decorations. 
+The _CSS syntax_ reflects this goal and its basic building blocks are:
 
 - The **property** which is an identifier, that is a human-readable _name_, that defines which feature is considered.
 - The **value** which describe how the feature must be handled by the engine. Each property has a set of valid values, defined by a formal grammar, as well as a semantic meaning, implemented by the browser engine.
