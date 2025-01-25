@@ -7,9 +7,12 @@ browser-compat: html.elements.base
 
 {{HTMLSidebar}}
 
-The **`<base>`** [HTML](/en-US/docs/Web/HTML) element specifies the base URL to use for all _relative_ URLs in a document. There can be only one `<base>` element in a document.
-
-A document's used base URL can be accessed by scripts with {{domxref('Node.baseURI')}}. If the document has no `<base>` elements, then `baseURI` defaults to {{domxref("location.href")}}.
+* **`<base>`** 
+  * == [HTML](/en-US/docs/Web/HTML) element / specifies the
+    * 👀base URL | ALL document's _relative_ URLs 👀 
+  * ⚠️ALLOWED ONLY 1! | document ⚠️
+  * if you want to access document's used base URL -> {{domxref('Node.baseURI')}}
+    * & it's NOT specified -> == {{domxref("location.href")}}
 
 <table class="properties">
   <tbody>
@@ -52,51 +55,59 @@ A document's used base URL can be accessed by scripts with {{domxref('Node.baseU
 
 ## Attributes
 
-This element's attributes include the [global attributes](/en-US/docs/Web/HTML/Global_attributes).
+* [global attributes](/en-US/docs/Web/HTML/Global_attributes) / 
+  * ⚠️REQUIRED to be specified ⚠️
+    * `href` or
+    * `target` or
+    * `href` & `target`
 
-> **Warning:** A `<base>` element must have an `href` attribute, a `target` attribute, or both.
-> If at least one of these attributes are specified, the `<base>` element **must** come before other elements with attribute values that are URLs, such as a {{HTMLElement("link")}}'s `href` attribute.
+* `href`
+  * == base URL / 
+    * used -- throughout the -- document
+    * ALLOWED 
+      * absolute URLs
+      * relative URLs
+    * ❌NOT ALLOWED ❌
+      * [`data:`](/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs) URLs
+      * `javascript:` URLs
+* `target`
+  * == 👀**keyword** or **author-defined name** of the default {{Glossary("browsing context")}} 👀
+    * -- to show the -- results of navigation / WITHOUT explicit `target` attributes from 
+      * {{HTMLElement("a")}},
+      * {{HTMLElement("area")}}, or
+      * {{HTMLElement("form")}} 
+    * keywords / have SPECIAL meanings
+      * `_self` (default)
+        * == show the result | CURRENT browsing context
+      * `_blank`
+        * == show the result | NEW, unnamed browsing context
+      * `_parent`
+        * == show the result &
+          * current page | frame -> current one's parent browsing context 
+          * there is NO parent -> == `_self`
+      * `_top`
+        * == show the result 
+          * | topmost browsing context  
+          * & there is NO parent -> == `_self`
 
-- `href`
-  - : The base URL to be used throughout the document for relative URLs.
-    Absolute and relative URLs are allowed.
-    [`data:`](/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs) and `javascript:` URLs are not allowed.
-- `target`
-
-  - : A **keyword** or **author-defined name** of the default {{Glossary("browsing context")}} to show the results of navigation from {{HTMLElement("a")}}, {{HTMLElement("area")}}, or {{HTMLElement("form")}} elements without explicit `target` attributes. The following keywords have special meanings:
-
-    - `_self` (default): Show the result in the current browsing context.
-    - `_blank`: Show the result in a new, unnamed browsing context.
-    - `_parent`: Show the result in the parent browsing context of the current one, if the current page is inside a frame. If there is no parent, acts the same as `_self`.
-    - `_top`: Show the result in the topmost browsing context (the browsing context that is an ancestor of the current one and has no parent). If there is no parent, acts the same as `_self`.
+* 👀if `<base>` appears -> place BEFORE OTHER elements / have URLs attribute (_Example:_ {{HTMLElement("link")}} ) 👀
 
 ## Usage notes
 
-### Multiple \<base> elements
+* 👀if SEVERAL `<base>` elements are used -> ONLY it's used, 👀
+  * first `href`
+  * first `target` 
 
-If multiple `<base>` elements are used, only the first `href` and first `target` are obeyed — all others are ignored.
+* 👀links -- to a -- document's fragment -> are resolved with the `<base>` 👀
 
-### In-page anchors
-
-Links pointing to a fragment in the document — e.g. `<a href="#some-id">` — are resolved with the `<base>`, triggering an HTTP request to the base URL with the fragment attached.
-
-For example, given `<base href="https://example.com/">` and this link: `<a href="#anchor">To anchor</a>`. The link points to `https://example.com/#anchor`.
-
-### Open Graph
-
-[Open Graph](https://ogp.me/) tags do not acknowledge `<base>`, and should always have full absolute URLs. For example:
-
-```html
-<meta property="og:image" content="https://example.com/thumbnail.jpg" />
-```
+* [Open Graph](https://ogp.me/) tags
+  * do NOT acknowledge `<base>`
+  * recommendations
+    * ALWAYS have FULL absolute URLs
 
 ## Examples
 
-```html
-<base href="https://www.example.com/" />
-<base target="_blank" />
-<base target="_top" href="https://example.com/" />
-```
+* [index.html](index.html)
 
 ## Specifications
 

@@ -1,0 +1,24 @@
+<head>
+  <base href="https://upload.wikimedia.org/wikipedia/commons/" />
+  <base target="_blank" />
+
+  <!-- ONLY FIRST href  & target are taken in account -->
+  <base target="_top" href="https://example.com/" />
+</head>
+<body>
+  <!-- 1. used as base URL
+    src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Noether_retusche_nachcoloriert.jpg"-->
+  <img src="7/7f/Noether_retusche_nachcoloriert.jpg">
+
+  <!-- 2. use of the target keywords
+    open https://upload.wikimedia.org/wikipedia/commons/about.html    | ANOTHER browsing context -->
+  <a href="about.html">About</a>
+
+  <!-- 3. links to a document -- are resolved with the -- base
+    https://upload.wikimedia.org/wikipedia/commons/#anchor -->
+  <a href="#anchor">To anchor</a>
+
+  <!-- open graph  -->
+  <!-- TODO: How does it work?
+  <meta property="og:image" content="https://example.com/thumbnail.jpg" />
+</body>
