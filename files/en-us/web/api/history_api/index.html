@@ -1,0 +1,15 @@
+<body>
+  <p>History API</p>
+  <script>
+    console.log(history);
+
+    // NOT POSSIBLE to pushState() URLs / DIFFERENT cross-origin
+    /*history.pushState({ page: 1 }, "title 1", "https://www.marca.com/");
+    history.pushState({ page: 2 }, "title 2", "https://de.wikipedia.org/wiki/Bitcoin");
+    history.replaceState({ page: 3 }, "title 3", "https://www.fide.com/");*/
+    history.pushState({ page: 1 }, "title 1", "/about.html");
+    history.pushState({ page: 2 }, "title 2", "/contact.html");
+    history.replaceState({ page: 3 }, "title 3", "/about.html");
+    history.back(); // TODO: Why does NOT it render the content of "about.html"?
+  </script>
+</body>
