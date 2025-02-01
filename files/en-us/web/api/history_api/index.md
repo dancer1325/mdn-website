@@ -10,18 +10,37 @@ browser-compat: api.History
 * **History API** 
   * 👀-- provides access to the -- browser's session history 👀
     * != [WebExtensions history](/en-US/docs/Mozilla/Add-ons/WebExtensions/API/history) -- through the -- {{DOMxRef("Window.history","history")}} global object
+    * == list of pages / visited by the user | given `window`  
   * == methods & properties /
     * let you 
       * navigate back and forth -- through the -- user's history
       * manipulate the contents of the history stack
-    * AVAILABLE methods
-      * {{DOMxRef("History.back","back()")}}, 
-      * {{DOMxRef("History.forward","forward()")}},
-      * {{DOMxRef("History.go","go()")}}
   * AVAILABLE ONLY | MAIN thread ({{domxref("Window")}})
     * NOT be accessed | contexts
       * {{domxref("Worker")}} or
       * {{domxref("Worklet")}}
+
+## Interfaces
+
+* {{domxref("History")}}
+  * 👀== MAIN interface | History API 👀
+  * allows
+    * manipulating the browser _session history_ (== pages visited | tab or frame / current page is loaded in)
+  * sets of methods
+    * methods / -- navigate to a -- page | session history
+      * {{domxref("History.back()")}}
+      * {{domxref("History.forward()")}}
+      * {{domxref("History.go()")}}
+    * methods / -- modify the -- session history
+      * {{domxref("History.pushState()")}}
+      * {{domxref("History.replaceState()")}}
+  * goal
+    * 👀websites (_Example:_ {{Glossary("SPA", "Single-page applications")}}) / use JavaScript APIs (_Example:_ {{domxref("fetch()")}}) -- can update, with new content, -- the page 👀
+      * ⚠️update != loading a WHOLE NEW page ⚠️
+* {{domxref("PopStateEvent")}}
+  * == interface of the {{domxref("Window.popstate_event", "popstate")}} event
+  * 👀| browser -- navigates to -- SOME history entry,
+    * browser -- fires a -- {{domxref("Window.popstate_event", "popstate")}} event / contains the state object -- associated with -- that entry 👀
 
 ## Concepts and usage
 
@@ -48,14 +67,6 @@ browser-compat: api.History
 ### Number of pages | history stack
 
 * `history.length;`
-
-## Interfaces
-
-* {{domxref("History")}}
-  * allows
-    * manipulating the browser _session history_ (== pages visited | tab or frame / current page is loaded in)
-* {{domxref("PopStateEvent")}}
-  * == interface of the {{domxref("Window.popstate_event", "popstate")}} event
 
 ## Examples
 
