@@ -6,30 +6,33 @@ page-type: glossary-definition
 
 {{GlossarySidebar}}
 
-A **callback function** is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+* **callback function**
+  * == function / 
+    * passed | ANOTHER function's argument
+    * executed | outer function's execution
 
-The consumer of a callback-based API writes a function that is passed into the API. The provider of the API (called the _caller_) takes the function and calls back (or executes) the function at some point inside the caller's body. The caller is responsible for passing the right parameters into the callback function. The caller may also expect a particular return value from the callback function, which is used to instruct further behavior of the caller.
+* outer function
+  * == function / receives -- as argument, a -- function (== callback function)
 
-There are two ways in which the callback may be called: _synchronous_ and _asynchronous_. Synchronous callbacks are called immediately after the invocation of the outer function, with no intervening asynchronous tasks, while asynchronous callbacks are called at some point later, after an {{glossary("asynchronous")}} operation has completed.
+* callback-based API
+  * 's consumer
+    * == who writes the callback function
+  * 's provider or _caller_
+    * == who writes the outer function 
+      * -> ALSO responsible -- to pass -- callback function's parameters
 
-Understanding whether the callback is synchronously or asynchronously called is particularly important when analyzing side effects. Consider the following example:
-
-```js
-let value = 1;
-
-doSomething(() => {
-  value = 2;
-});
-
-console.log(value);
-```
-
-If `doSomething` calls the callback synchronously, then the last statement would log `2` because `value = 2` is synchronously executed; otherwise, if the callback is asynchronous, the last statement would log `1` because `value = 2` is only executed after the `console.log` statement.
-
-Examples of synchronous callbacks include the callbacks passed to {{jsxref("Array.prototype.map()")}}, {{jsxref("Array.prototype.forEach()")}}, etc. Examples of asynchronous callbacks include the callbacks passed to [`setTimeout()`](/en-US/docs/Web/API/setTimeout) and {{jsxref("Promise.prototype.then()")}}.
-
-The [Using promises](/en-US/docs/Web/JavaScript/Guide/Using_promises#timing) guide has more information on the timing of asynchronous callbacks.
+* ways to call the callback
+  * _synchronous_
+    * | IMMEDIATELY AFTER outer function's invoke
+      * they are called / NO intervening async tasks 
+  * _asynchronous_ 
+    * | LATER outer function's invoke & {{glossary("asynchronous")}} operation has completed 
+      * they are called
+    * _Example:_ callback function / passed |
+      * [`setTimeout()`](/en-US/docs/Web/API/setTimeout) 
+      * {{jsxref("Promise.prototype.then()")}}
 
 ## See also
 
-- [Callback](<https://en.wikipedia.org/wiki/Callback_(computer_programming)>) on Wikipedia
+* [Using promises](/en-US/docs/Web/JavaScript/Guide/Using_promises#timing)
+* [Callback](<https://en.wikipedia.org/wiki/Callback_(computer_programming)>) on Wikipedia
