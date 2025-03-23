@@ -6,56 +6,79 @@ page-type: guide
 
 {{QuickLinksWithSubpages("/en-US/docs/Web/Security")}}
 
-The **same-origin policy** is a critical security mechanism that restricts how a document or script loaded by one {{Glossary("origin")}} can interact with a resource from another origin.
-
-It helps isolate potentially malicious documents, reducing possible attack vectors. For example, it prevents a malicious website on the Internet from running JS in a browser to read data from a third-party webmail service (which the user is signed into) or a company intranet (which is protected from direct access by the attacker by not having a public IP address) and relaying that data to the attacker.
+* **[same-origin policy](/en-US/docs/Web/Security/Same-origin_policy)**
+  * == critical security mechanism /
+    * 💡restricts how a document OR script loaded | one {{Glossary("origin")}} -- can interact with a -- resource | ANOTHER origin 💡
+  * 's goal
+    * isolate potentially malicious documents
+    * reduce possible attack vectors
+  * _Examples:_ prevents a malicious website runs JS | browser -- to read data from --
+    * a third-party webmail service (signed into by the user)
+    * a company intranet & relaying that data | attacker
 
 ## Definition of an origin
 
-Two URLs have the _same origin_ if the {{Glossary("protocol")}}, {{Glossary("port")}} (if specified), and {{Glossary("host")}} are the same for both. You may see this referenced as the "scheme/host/port tuple", or just "tuple". (A "tuple" is a set of items that together comprise a whole — a generic form for double/triple/quadruple/quintuple/etc.)
+* "scheme/host/port tuple" OR "tuple"
+  * ANOTHER origin's reference name
+* URL 1's origin == URL 2's origin, requires 
+  * SAME {{Glossary("protocol")}},
+  * SAME {{Glossary("port")}}
+  * (if it's specified), SAME {{Glossary("host")}}  
 
-The following table gives examples of origin comparisons with the URL `http://store.company.com/dir/page.html`:
+* _Examples:_ URL 1 `http://store.company.com/dir/page.html`
 
-| URL                                               | Outcome     | Reason                                           |
-| ------------------------------------------------- | ----------- | ------------------------------------------------ |
-| `http://store.company.com/dir2/other.html`        | Same origin | Only the path differs                            |
-| `http://store.company.com/dir/inner/another.html` | Same origin | Only the path differs                            |
-| `https://store.company.com/page.html`             | Failure     | Different protocol                               |
-| `http://store.company.com:81/dir/page.html`       | Failure     | Different port (`http://` is port 80 by default) |
-| `http://news.company.com/dir/page.html`           | Failure     | Different host                                   |
+| URL 2                                             | Outcome     | Reason                                           |
+|---------------------------------------------------| ----------- |--------------------------------------------------|
+| `http://store.company.com/dir2/other.html`        | Same origin | ONLY, path differs                               |
+| `http://store.company.com/dir/inner/another.html` | Same origin | ONLY, the path differs                           |
+| `https://store.company.com/page.html`             | Failure     | DIFFERENT protocol                               |
+| `http://store.company.com:81/dir/page.html`       | Failure     | DIFFERENT port (`http://` is port 80 by default) |
+| `http://news.company.com/dir/page.html`           | Failure     | DIFFERENT host                                   |
 
 ### Inherited origins
 
-Scripts executed from pages with an `about:blank` or `javascript:` URL inherit the origin of the document containing that URL, since these types of URLs do not contain information about an origin server.
-
-For example, `about:blank` is often used as a URL of new, empty popup windows into which the parent script writes content (e.g. via the {{domxref("Window.open()")}} mechanism). If this popup also contains JavaScript, that script would inherit the same origin as the script that created it.
-
-`data:` URLs get a new, empty, security context.
+* Scripts / executed | pages / has `about:blank` or `javascript:` URL
+  * 👀's origin -- is inherited from -- document / contains that URL 👀
+    * Reason: 🧠these types of URLs -- do NOT contain -- information about an origin server 🧠
+    * _Example:_ `about:blank` -- is often used as a -- URL of new, empty popup windows | parent script -- writes (_Example:_ via {{domxref("Window.open()")}}) -- content
+      * if popup ALSO contains JavaScript -> that script's origin -- is inherited from -- script / created it
+  * `data:`
+    * == URLs -- get a -- security context new, empty 
 
 ### File origins
 
-Modern browsers usually treat the origin of files loaded using the `file:///` schema as _opaque origins_.
-What this means is that if a file includes other files from the same folder (say), they are not assumed to come from the same origin, and may trigger {{Glossary("CORS")}} errors.
-
-Note that the [URL specification](https://url.spec.whatwg.org/#origin) states that the origin of files is implementation-dependent, and some browsers may treat files in the same directory or subdirectory as same-origin even though this has [security implications](https://www.mozilla.org/en-US/security/advisories/mfsa2019-21/#CVE-2019-11730).
+* Modern browsers's files / loaded -- via -- `file:///`, 's origin == opaque origins
+  * == if a file includes OTHER folder's files -> NOT assumed to come -- from the -- SAME origin -> may trigger {{Glossary("CORS")}} errors == [security implications](https://www.mozilla.org/en-US/security/advisories/mfsa2019-21/#CVE-2019-11730)
+* 💡implementation-dependent 💡
+  * Reason: 🧠due to [URL specification](https://url.spec.whatwg.org/#origin) 🧠
 
 ## Changing origin
 
-> **Warning:** The approach described here (using the {{domxref("document.domain")}} setter) is deprecated because it undermines the security protections provided by the same origin policy, and complicates the origin model in browsers, leading to interoperability problems and security bugs.
+* -- via -- {{domxref("document.domain")}} setter
+  * ⚠️ deprecated ⚠️
+    * Reason: 🧠
+    * undermines the security protections / -- provided by the -- SAME origin policy
+    * complicates the origin model in browsers 🧠
+  * ALLOWED values
+    * its current domain or
+    * its current domain's superdomain   
+      * -> shorter superdomain -- is used for -- same-origin checks
+  * _Example:_ script | `http://store.company.com/dir/other.html`, executes
+    ```js
+    document.domain = "company.com";
+    ```
+    * -> page can pass the same-origin check -- via -- `http://company.com/dir/page.html` 
+    * if `http://company.com/dir/page.html` sets its `document.domain=company.com` -> wishes to allow that
+    * `company.com` could NOT set `document.domain=othercompany.com`
+      * Reason: 🧠NOT superdomain of `company.com` 🧠
+* TODO:
+The port number is checked separately by the browser. 
+Any call to `document.domain`, including `document.domain = document.domain`, causes the port number to be overwritten with `null`. 
+Therefore, one **cannot** make `company.com:8080` talk to `company.com` by only setting `document.domain = "company.com"` in the first. 
+It has to be set in both so their port numbers are both `null`.
 
-A page may change its own origin, with some limitations. A script can set the value of {{domxref("document.domain")}} to its current domain or a superdomain of its current domain. If set to a superdomain of the current domain, the shorter superdomain is used for same-origin checks.
-
-For example, assume a script from the document at `http://store.company.com/dir/other.html` executes the following:
-
-```js
-document.domain = "company.com";
-```
-
-Afterward, the page can pass the same-origin check with `http://company.com/dir/page.html` (assuming `http://company.com/dir/page.html` sets its `document.domain` to "`company.com`" to indicate that it wishes to allow that - see {{domxref("document.domain")}} for more). However, `company.com` could **not** set `document.domain` to `othercompany.com`, since that is not a superdomain of `company.com`.
-
-The port number is checked separately by the browser. Any call to `document.domain`, including `document.domain = document.domain`, causes the port number to be overwritten with `null`. Therefore, one **cannot** make `company.com:8080` talk to `company.com` by only setting `document.domain = "company.com"` in the first. It has to be set in both so their port numbers are both `null`.
-
-The mechanism has some limitations. For example, it will throw a "`SecurityError`" [`DOMException`](/en-US/docs/Web/API/DOMException) if the [`document-domain`](/en-US/docs/Web/HTTP/Headers/Permissions-Policy/document-domain) [`Permissions-Policy`](/en-US/docs/Web/HTTP/Headers/Permissions-Policy) is enabled or the document is in a sandboxed [`<iframe>`](/en-US/docs/Web/HTML/Element/iframe), and changing the origin in this way does not affect the origin checks used by many Web APIs (e.g. [`localStorage`](/en-US/docs/Web/API/Window/localStorage), [`indexedDB`](/en-US/docs/Web/API/IndexedDB_API), [`BroadcastChannel`](/en-US/docs/Web/API/BroadcastChannel), [`SharedWorker`](/en-US/docs/Web/API/SharedWorker)). A more exhaustive list of failure cases can be found in [Document.domain > Failures](/en-US/docs/Web/API/Document/domain#failures).
+The mechanism has some limitations. For example, it will throw a "`SecurityError`" [`DOMException`](/en-US/docs/Web/API/DOMException) if the [`document-domain`](/en-US/docs/Web/HTTP/Headers/Permissions-Policy/document-domain) [`Permissions-Policy`](/en-US/docs/Web/HTTP/Headers/Permissions-Policy) is enabled or the document is in a sandboxed [`<iframe>`](/en-US/docs/Web/HTML/Element/iframe), and changing the origin in this way does not affect the origin checks used by many Web APIs (e.g. [`localStorage`](/en-US/docs/Web/API/Window/localStorage), [`indexedDB`](/en-US/docs/Web/API/IndexedDB_API), [`BroadcastChannel`](/en-US/docs/Web/API/BroadcastChannel), [`SharedWorker`](/en-US/docs/Web/API/SharedWorker)). 
+A more exhaustive list of failure cases can be found in [Document.domain > Failures](/en-US/docs/Web/API/Document/domain#failures).
 
 > **Note:** When using `document.domain` to allow a subdomain to access its parent, you need to set `document.domain` to the _same value_ in both the parent domain and the subdomain. This is necessary even if doing so is setting the parent domain back to its original value. Failure to do this may result in permission errors.
 
@@ -77,18 +100,28 @@ Here are some examples of resources which may be embedded cross-origin:
 - Fonts applied with {{cssxref("@font-face")}}. Some browsers allow cross-origin fonts, others require same-origin.
 - Anything embedded by {{htmlelement("iframe")}}. Sites can use the {{HTTPHeader("X-Frame-Options")}} header to prevent cross-origin framing.
 
-### How to allow cross-origin access
+### How to allow cross-origin access?
 
-Use [CORS](/en-US/docs/Web/HTTP/CORS) to allow cross-origin access. CORS is a part of {{Glossary("HTTP")}} that lets servers specify any other hosts from which a browser should permit loading of content.
+* use [CORS](/en-US/docs/Web/HTTP/CORS) 
+  * CORS
+    * 👀== part of {{Glossary("HTTP")}} 👀
+    * enable servers -- specify -- ANY OTHER hosts / browser -- should permit -- loading of content
 
-### How to block cross-origin access
+### How to block cross-origin access?
 
-- To prevent cross-origin writes, check an unguessable token in the request — known as a [Cross-Site Request Forgery (CSRF)](https://owasp.org/www-community/attacks/csrf) token. You must prevent cross-origin reads of pages that require this token.
-- To prevent cross-origin reads of a resource, ensure that it is not embeddable. It is often necessary to prevent embedding because embedding a resource always leaks some information about it.
-- To prevent cross-origin embeds, ensure that your resource cannot be interpreted as one of the embeddable formats listed above. Browsers may not respect the `Content-Type` header. For example, if you point a `<script>` tag at an HTML document, the browser will try to parse the HTML as JavaScript. When your resource is not an entry point to your site, you can also use a CSRF token to prevent embedding.
+* if you want to prevent cross-origin writes -> check the request's unguessable token 
+  * see [Cross-Site Request Forgery (CSRF)](https://owasp.org/www-community/attacks/csrf) token
+  * prevent cross-origin reads of pages / require this token
+* if you want to prevent cross-origin reads of a resource -> ensure that it is NOT embeddable
+  * Reason: 🧠embedding a resource -> ALWAYS leaks some information about it 🧠
+* if you want to prevent cross-origin embeds -> ensure that your resource -- can NOT be interpreted as -- one of the embeddable formats 
+  * Browsers -- may NOT respect the -- `Content-Type` header
+    * _Example:_ if you point a `<script>` tag | HTML document -> the browser -- will try to parse -- the HTML as JavaScript
+  * if your resource != entry point | your site & you want to prevent embedding -> use a CSRF token 
 
 ## Cross-origin script API access
 
+* TODO:
 JavaScript APIs like {{domxref("HTMLIFrameElement.contentWindow", "iframe.contentWindow")}}, {{domxref("window.parent")}}, {{domxref("window.open")}}, and {{domxref("window.opener")}} allow documents to directly reference each other. When two documents do not have the same origin, these references provide very limited access to {{domxref("Window")}} and {{domxref("Location")}} objects, as described in the next two sections.
 
 To communicate between documents from different origins, use {{domxref("window.postMessage")}}.
