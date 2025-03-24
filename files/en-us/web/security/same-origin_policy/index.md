@@ -121,15 +121,19 @@ Here are some examples of resources which may be embedded cross-origin:
 
 ## Cross-origin script API access
 
-* TODO:
-JavaScript APIs like {{domxref("HTMLIFrameElement.contentWindow", "iframe.contentWindow")}}, {{domxref("window.parent")}}, {{domxref("window.open")}}, and {{domxref("window.opener")}} allow documents to directly reference each other. When two documents do not have the same origin, these references provide very limited access to {{domxref("Window")}} and {{domxref("Location")}} objects, as described in the next two sections.
-
-To communicate between documents from different origins, use {{domxref("window.postMessage")}}.
-
-Specification: [HTML Living Standard § Cross-origin objects](https://html.spec.whatwg.org/multipage/browsers.html#cross-origin-objects).
+* JavaScript APIs / enable documents -- to directly reference -- EACH OTHER
+  * {{domxref("HTMLIFrameElement.contentWindow", "iframe.contentWindow")}},
+  * {{domxref("window.parent")}}, 
+  * {{domxref("window.open")}},
+  * {{domxref("window.opener")}}  
+* if 2 documents do NOT have the SAME origin -> 
+  * these references -- provide -- VERY limited access to {{domxref("Window")}} & {{domxref("Location")}} objects
+  * use {{domxref("window.postMessage")}}
+* [specification](https://html.spec.whatwg.org/multipage/browsers.html#cross-origin-objects).
 
 ### Window
 
+* TODO:
 The following cross-origin access to these `Window` properties is allowed:
 
 | Methods                           |
