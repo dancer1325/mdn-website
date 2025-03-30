@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple MutationObserver Example</title>
+</head>
+<body>
+<div id="watchMe">
+  <p>Initial content</p>
+</div>
+
+<button onclick="addContent()">Add Content</button>
+<button onclick="changeAttribute()">Change Color</button>
+
+<script>
+  // Get the target element to watch
+  const targetNode = document.getElementById('watchMe');
+
+  // Callback function to execute when mutations are observed
+  const callback = function(mutationsList) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'childList') {
+        console.log('A child node has been added or removed');
+      }
+      else if (mutation.type === 'attributes') {
+        console.log('The ' + mutation.attributeName + ' attribute was modified');
+      }
+    }
+  };
+
+  // Create a MutationObserver instance
+  const observer = new MutationObserver(callback);
+
+  // Configuration options
+  const config = {
+    attributes: true,    // watch for attribute changes
+    childList: true,     // watch for child elements being added/removed
+    subtree: true        // watch all descendants
+  };
+
+  // Start observing the target node
+  observer.observe(targetNode, config);
+
+  // Helper functions to demonstrate changes
+  function addContent() {
+    const newElement = document.createElement('p');
+    newElement.textContent = 'New paragraph added at ' + new Date().toLocaleTimeString();
+    targetNode.appendChild(newElement);
+  }
+
+  function changeAttribute() {
+    targetNode.style.backgroundColor =
+      targetNode.style.backgroundColor === 'yellow' ? 'white' : 'yellow';
+  }
+</script>
+</body>
+</html>
