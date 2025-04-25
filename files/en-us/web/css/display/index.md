@@ -7,9 +7,15 @@ browser-compat: css.properties.display
 
 {{CSSRef}}
 
-The **`display`** [CSS](/en-US/docs/Web/CSS) property sets whether an element is treated as a [block or inline box](/en-US/docs/Web/CSS/CSS_flow_layout) and the layout used for its children, such as [flow layout](/en-US/docs/Web/CSS/CSS_flow_layout), [grid](/en-US/docs/Web/CSS/CSS_grid_layout) or [flex](/en-US/docs/Web/CSS/CSS_flexible_box_layout).
+* **`display`** 
+  * == [CSS](/en-US/docs/Web/CSS) property / sets whether
+    * element -- is treated as a -- [block or inline box](/en-US/docs/Web/CSS/CSS_flow_layout) 
+    * layout / used for its children -- is treated as -- [flow layout](/en-US/docs/Web/CSS/CSS_flow_layout), [grid](/en-US/docs/Web/CSS/CSS_grid_layout) or [flex](/en-US/docs/Web/CSS/CSS_flexible_box_layout)
 
-Formally, the **`display`** property sets an element's inner and outer _display types_. The outer type sets an element's participation in [flow layout](/en-US/docs/Web/CSS/CSS_flow_layout); the inner type sets the layout of children. Some values of `display` are fully defined in their own individual specifications; for example the detail of what happens when `display: flex` is declared is defined in the CSS Flexible Box Model specification.
+* TODO:
+Formally, the **`display`** property sets an element's inner and outer _display types_. 
+The outer type sets an element's participation in [flow layout](/en-US/docs/Web/CSS/CSS_flow_layout); the inner type sets the layout of children. 
+Some values of `display` are fully defined in their own individual specifications; for example the detail of what happens when `display: flex` is declared is defined in the CSS Flexible Box Model specification.
 
 {{EmbedInteractiveExample("pages/css/display.html")}}
 
@@ -68,7 +74,8 @@ The keyword values can be grouped into six value categories.
     - `block`
       - : The element generates a block box, generating line breaks both before and after the element when in the normal flow.
     - `inline`
-      - : The element generates one or more inline boxes that do not generate line breaks before or after themselves. In normal flow, the next element will be on the same line if there is space.
+      - : The element generates one or more inline boxes that do not generate line breaks before or after themselves. 
+        - In normal flow, the next element will be on the same line if there is space.
 
 > **Note:** When browsers that support multi-keyword syntax encounter a display property that only has an **outer** value (e.g., `display: block` or `display: inline`), the inner value is set to `flow` (e.g., `display: block flow` and `display: inline flow`).
 
